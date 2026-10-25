@@ -1,11 +1,12 @@
 /* Service worker mínimo: cachea el shell para jugar sin conexión. */
 
-const CACHE = "saber-v6";
+const CACHE = "saber-v8";
 const ARCHIVOS = [
   "./",
   "./index.html",
   "./css/styles.css",
   "./js/app.js",
+  "./js/cursos.js",
   "./js/questions.js",
   "./manifest.webmanifest",
   "./icons/icon-192.png",

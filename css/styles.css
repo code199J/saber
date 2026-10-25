@@ -68,26 +68,221 @@ body {
   max-width: 34ch;
 }
 
-/* ── Racha ────────────────────────────────────────────────── */
-.racha {
+/* ── Datos de cabecera (racha y nivel) ────────────────────── */
+.fila-datos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.dato {
   display: flex;
   align-items: baseline;
-  gap: 10px;
+  gap: 8px;
   padding: 12px 16px;
   border: 1px solid var(--borde);
   border-radius: var(--radio);
   background: var(--tinta-baja);
 }
 
-.racha-num {
+.dato-num {
   font-family: var(--serif);
-  font-size: 30px;
+  font-size: 28px;
   line-height: 1;
   color: var(--ambar);
   font-variant-numeric: tabular-nums;
 }
 
-.racha-txt { color: var(--tenue); font-size: 13px; letter-spacing: 0.02em; }
+.dato-txt { color: var(--tenue); font-size: 12px; letter-spacing: 0.02em; }
+
+/* ── Tarjeta "Continuar" ──────────────────────────────────── */
+.continuar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #2B4C55;
+  border-radius: var(--radio);
+  background: linear-gradient(160deg, #17383F 0%, #102A31 100%);
+  color: var(--texto);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.12s ease;
+}
+
+.continuar:hover { border-color: var(--ambar); }
+.continuar:active { transform: scale(0.995); }
+
+.continuar-tag {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ambar);
+}
+
+.continuar-titulo {
+  font-family: var(--serif);
+  font-size: 23px;
+  line-height: 1.22;
+}
+
+.continuar-sub { font-size: 13px; color: var(--tenue); }
+
+.barra-mini {
+  display: block;
+  width: 100%;
+  height: 3px;
+  margin-top: 8px;
+  border-radius: 3px;
+  background: #1B343B;
+  overflow: hidden;
+}
+
+.barra-mini > span {
+  display: block;
+  height: 100%;
+  background: var(--ambar);
+  transition: width 0.3s ease;
+}
+
+/* ── Lista de cursos ──────────────────────────────────────── */
+.cursos { display: flex; flex-direction: column; gap: 10px; }
+
+.curso {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 100%;
+  padding: 16px;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  background: var(--tinta-alta);
+  color: var(--texto);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.12s ease, background 0.12s ease;
+}
+
+.curso:hover { border-color: #3A6470; background: #133038; }
+.curso:active { transform: scale(0.995); }
+
+.curso-tema {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ambar);
+}
+
+.curso-nombre {
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.curso-sub { font-size: 12.5px; color: var(--tenue); }
+.curso-pie { font-size: 11.5px; color: var(--tenue); margin-top: 4px; font-variant-numeric: tabular-nums; }
+
+/* ── Vista de curso ───────────────────────────────────────── */
+.curso-titulo {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(28px, 8vw, 36px);
+  line-height: 1.14;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.curso-desc { margin: 0; color: #CBD6D4; font-size: 15px; line-height: 1.55; }
+
+.lista-lecciones { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+
+.leccion-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 14px 16px;
+  min-height: 66px;
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  background: var(--tinta-alta);
+  color: var(--texto);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.12s ease;
+}
+
+.leccion-item:hover { border-color: #3A6470; }
+.leccion-item.hecha { border-color: #26513F; background: #10261F; }
+
+.leccion-item .num {
+  flex: 0 0 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid #2B4C55;
+  font-size: 12px;
+  color: var(--tenue);
+  font-variant-numeric: tabular-nums;
+}
+
+.leccion-item.hecha .num { border-color: var(--bien); color: var(--bien); }
+
+.leccion-item .cuerpo { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+.leccion-item .titulo { font-size: 15px; line-height: 1.3; }
+.leccion-item .meta { font-size: 11.5px; color: var(--tenue); }
+.leccion-item .marca { color: var(--tenue); font-size: 16px; }
+.leccion-item.hecha .marca { color: var(--bien); }
+
+/* ── Lectura de la lección ────────────────────────────────── */
+.leccion-titulo {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(26px, 7.6vw, 34px);
+  line-height: 1.16;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.leccion-meta { margin: 0; color: var(--tenue); font-size: 12.5px; letter-spacing: 0.03em; }
+
+.lectura { display: flex; flex-direction: column; gap: 16px; }
+
+.lectura p {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 17.5px;
+  line-height: 1.72;
+  color: #DCE4E2;
+}
+
+.lectura p:first-child::first-letter {
+  float: left;
+  font-size: 3.1em;
+  line-height: 0.86;
+  padding: 2px 8px 0 0;
+  color: var(--ambar);
+}
+
+.acciones-leccion {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--borde);
+}
+
+.xp-ganada {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--ambar);
+  font-variant-numeric: tabular-nums;
+}
 
 /* ── Botón del reto diario ────────────────────────────────── */
 .diario {

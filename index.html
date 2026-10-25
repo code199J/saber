@@ -3,39 +3,54 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Saber · cultura general</title>
-<meta name="description" content="Trivia diaria de cultura general. Sin cuentas, sin anuncios, sin pagos.">
+<title>Saber · cultura general en 10 minutos</title>
+<meta name="description" content="Cursos breves de historia, ciencia, filosofía, economía y geopolítica. Una lección y un test al día. Sin cuentas, sin anuncios, sin pagos.">
 <meta name="theme-color" content="#0B171B">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon-192.png">
-<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 <main id="app">
 
+  <!-- ── Inicio ───────────────────────────────────────────── -->
   <section id="vista-inicio" class="vista">
     <header class="marca">
       <h1>Saber<span class="punto">.</span></h1>
-      <p class="lema">Cultura general, diez preguntas al día.</p>
+      <p class="lema">Diez minutos al día. Una lección, un test, y a otra cosa.</p>
     </header>
 
-    <div class="racha">
-      <span class="racha-num" id="racha-num">0</span>
-      <span class="racha-txt" id="racha-txt">días seguidos</span>
+    <div class="fila-datos">
+      <div class="dato">
+        <span class="dato-num" id="racha-num">0</span>
+        <span class="dato-txt" id="racha-txt">días seguidos</span>
+      </div>
+      <div class="dato">
+        <span class="dato-num" id="nivel-num">1</span>
+        <span class="dato-txt" id="nivel-txt">nivel · 0 XP</span>
+      </div>
     </div>
 
-    <button class="diario" id="btn-diario">
-      <span class="diario-tag" id="diario-tag">Reto de hoy</span>
-      <span class="diario-titulo" id="diario-titulo">Jugar 10 preguntas</span>
-      <span class="diario-sub" id="diario-sub">Un tema distinto cada día</span>
+    <button class="continuar" id="btn-continuar">
+      <span class="continuar-tag" id="continuar-tag">Continuar</span>
+      <span class="continuar-titulo" id="continuar-titulo">Cargando…</span>
+      <span class="continuar-sub" id="continuar-sub"></span>
+      <span class="barra-mini"><span id="continuar-barra"></span></span>
     </button>
 
-    <h2 class="sec">Elige un tema</h2>
-    <div class="temas" id="temas"></div>
+    <h2 class="sec">Biblioteca</h2>
+    <div class="cursos" id="cursos"></div>
+
+    <h2 class="sec">Reto del día</h2>
+    <button class="diario" id="btn-diario">
+      <span class="diario-tag" id="diario-tag">Preguntas diarias</span>
+      <span class="diario-titulo" id="diario-titulo">10 preguntas sueltas</span>
+      <span class="diario-sub" id="diario-sub">Sin repetir, un tema distinto cada día</span>
+    </button>
 
     <div class="stats" id="stats"></div>
 
@@ -46,17 +61,53 @@
     </footer>
   </section>
 
+  <!-- ── Curso ────────────────────────────────────────────── -->
+  <section id="vista-curso" class="vista oculto">
+    <header class="barra">
+      <button class="icono" id="btn-curso-salir" aria-label="Volver al inicio">←</button>
+      <span class="progreso-txt" id="curso-progreso-txt">0 / 4</span>
+    </header>
+
+    <p class="etiqueta" id="curso-tema">Historia</p>
+    <h2 class="curso-titulo" id="curso-titulo"></h2>
+    <p class="curso-desc" id="curso-desc"></p>
+
+    <div class="barra-progreso"><span id="curso-barra"></span></div>
+
+    <div class="lista-lecciones" id="lista-lecciones"></div>
+  </section>
+
+  <!-- ── Lección ──────────────────────────────────────────── -->
+  <section id="vista-leccion" class="vista oculto">
+    <header class="barra">
+      <button class="icono" id="btn-leccion-salir" aria-label="Volver al curso">←</button>
+      <span class="progreso-txt" id="leccion-progreso-txt"></span>
+    </header>
+
+    <p class="etiqueta" id="leccion-tema"></p>
+    <h2 class="leccion-titulo" id="leccion-titulo"></h2>
+    <p class="leccion-meta" id="leccion-meta"></p>
+
+    <article class="lectura" id="leccion-texto"></article>
+
+    <div class="acciones-leccion">
+      <button class="primario" id="btn-test">Ponerme a prueba</button>
+      <button class="secundario" id="btn-volver-curso">Volver al curso</button>
+    </div>
+  </section>
+
+  <!-- ── Test ─────────────────────────────────────────────── -->
   <section id="vista-juego" class="vista oculto">
     <header class="barra">
-      <button class="icono" id="btn-salir" aria-label="Salir al inicio">←</button>
-      <span class="progreso-txt" id="progreso-txt">1 / 10</span>
-      <span class="puntos" id="puntos-txt">0 pts</span>
+      <button class="icono" id="btn-salir" aria-label="Salir">←</button>
+      <span class="progreso-txt" id="progreso-txt">1 / 3</span>
+      <span class="puntos" id="puntos-txt"></span>
     </header>
 
     <div class="barra-progreso"><span id="barra-progreso"></span></div>
     <div class="tiempo"><span id="barra-tiempo"></span></div>
 
-    <p class="etiqueta" id="etiqueta-cat">Historia</p>
+    <p class="etiqueta" id="etiqueta-cat">Test</p>
     <h2 class="pregunta" id="pregunta"></h2>
 
     <div class="opciones" id="opciones"></div>
@@ -68,20 +119,25 @@
     </div>
   </section>
 
+  <!-- ── Resultado ────────────────────────────────────────── -->
   <section id="vista-resultado" class="vista oculto">
-    <p class="etiqueta">Resultado</p>
-    <p class="marcador"><span id="aciertos">0</span><small id="total-marcador">/10</small></p>
+    <p class="etiqueta" id="resultado-etiqueta">Resultado</p>
+    <p class="marcador"><span id="aciertos">0</span><small id="total-marcador">/3</small></p>
     <p class="veredicto-final" id="veredicto-final"></p>
-    <div class="acciones">
-      <button class="primario" id="btn-otra">Otra ronda</button>
+    <p class="xp-ganada" id="xp-ganada"></p>
+
+    <div class="acciones" id="acciones-resultado">
+      <button class="primario" id="btn-otra">Siguiente lección</button>
       <button class="secundario" id="btn-inicio">Inicio</button>
     </div>
+
     <div class="fallos" id="fallos"></div>
   </section>
 
 </main>
 
 <script src="js/questions.js"></script>
+<script src="js/cursos.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

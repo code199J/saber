@@ -1,22 +1,30 @@
-/* Saber — lógica de la app. Sin frameworks, sin red, sin dependencias. */
+/* Saber — lógica. Sin frameworks, sin red, sin dependencias.
+   Modelo: cursos → lecciones (lectura + test) y un reto diario de preguntas sueltas. */
 
 const $  = (s) => document.querySelector(s);
 const $$ = (s) => Array.from(document.querySelectorAll(s));
 
 const CLAVE = "saber.v1";
-const MINUTOS = 25;          // segundos por pregunta
-const POR_RONDA = 10;        // preguntas por partida
+const SEGUNDOS = 25;
+const PREGUNTAS_RETO = 10;
+const XP_LECTURA = 10;
+const XP_TEST = 30;
+const XP_ACIERTO = 10;
+const XP_NIVEL = 150;
 
 /* ── Almacenamiento ─────────────────────────────────────────── */
 
 const POR_DEFECTO = {
-  partidas: 0,
-  aciertos: 0,
-  total: 0,
+  xp: 0,
   racha: 0,
   mejorRacha: 0,
   ultimoDia: null,
-  diario: null,        // { dia, aciertos, total }
+  diario: null,          // { dia, aciertos, total }
+  vistas: {},            // { idLeccion: true }
+  tests: {},             // { idLeccion: aciertos }
+  partidas: 0,
+  aciertos: 0,
+  total: 0,
   tiempo: true
 };
 
@@ -24,8 +32,6 @@ function cargarDatos() {
   let guardado = {};
   try { guardado = JSON.parse(localStorage.getItem(CLAVE)) || {}; } catch (e) { guardado = {}; }
   const d = Object.assign({}, POR_DEFECTO, guardado);
-
-  // La racha se rompe si el último día jugado no fue hoy ni ayer.
   if (d.ultimoDia && d.ultimoDia !== hoy() && d.ultimoDia !== ayer()) d.racha = 0;
   return d;
 }
@@ -36,17 +42,17 @@ function guardarDatos() {
 
 let datos = cargarDatos();
 
-/* ── Fechas y azar reproducible ─────────────────────────────── */
+/* ── Fechas y azar ──────────────────────────────────────────── */
 
 function fechaISO(d) {
   return d.getFullYear() + "-" +
     String(d.getMonth() + 1).padStart(2, "0") + "-" +
     String(d.getDate()).padStart(2, "0");
 }
-// Declaraciones de función (no `const`) a propósito: se usan desde
-// cargarDatos(), que corre antes de esta línea.
+// Declaraciones de función a propósito: cargarDatos() corre antes que esta línea.
 function hoy()  { return fechaISO(new Date()); }
 function ayer() { return fechaISO(new Date(Date.now() - 86400000)); }
+
 function hashSemilla(texto) {
   let h = 2166136261;
   for (let i = 0; i < texto.length; i++) {
@@ -75,15 +81,215 @@ function mezclar(lista, azar = Math.random) {
   return a;
 }
 
+/* ── Catálogo de cursos ─────────────────────────────────────── */
+
+function cursoPorId(id) { return window.CURSOS.find((c) => c.id === id); }
+
+function leccionPorId(cursoId, lecId) {
+  const c = cursoPorId(cursoId);
+  return c ? c.lecciones.find((l) => l.id === lecId) : null;
+}
+
+function totalLecciones() {
+  return window.CURSOS.reduce((n, c) => n + c.lecciones.length, 0);
+}
+
+function aprobadas(curso) {
+  return curso.lecciones.filter((l) => datos.tests[l.id] >= 2).length;
+}
+
+// Primera lección sin test aprobado, en orden de biblioteca.
+function siguientePendiente() {
+  for (const c of window.CURSOS) {
+    for (const l of c.lecciones) {
+      if (!(datos.tests[l.id] >= 2)) return { curso: c, leccion: l };
+    }
+  }
+  return null;
+}
+
+function siguienteEnCurso(cursoId, lecId) {
+  const c = cursoPorId(cursoId);
+  if (!c) return null;
+  const i = c.lecciones.findIndex((l) => l.id === lecId);
+  return i >= 0 && i + 1 < c.lecciones.length ? c.lecciones[i + 1] : null;
+}
+
+function nivel() { return 1 + Math.floor(datos.xp / XP_NIVEL); }
+
+/* ── Actividad y XP ─────────────────────────────────────────── */
+
+function sumarXP(cantidad) {
+  datos.xp += cantidad;
+  guardarDatos();
+}
+
+function registrarActividad() {
+  if (datos.ultimoDia === hoy()) return;
+  datos.racha = (datos.ultimoDia === ayer()) ? datos.racha + 1 : 1;
+  datos.ultimoDia = hoy();
+  datos.mejorRacha = Math.max(datos.mejorRacha, datos.racha);
+}
+
+/* ── Vistas ─────────────────────────────────────────────────── */
+
+const VISTAS = ["inicio", "curso", "leccion", "juego", "resultado"];
+
+function mostrar(vista) {
+  VISTAS.forEach((v) => $("#vista-" + v).classList.toggle("oculto", v !== vista));
+  window.scrollTo(0, 0);
+}
+
+/* ── Inicio ─────────────────────────────────────────────────── */
+
+let cursoAbierto = null;
+let leccionAbierta = null;
+
+function pintarInicio() {
+  $("#racha-num").textContent = datos.racha;
+  $("#racha-txt").textContent = datos.racha === 1 ? "día seguido" : "días seguidos";
+  $("#nivel-num").textContent = nivel();
+  $("#nivel-txt").textContent = "nivel · " + datos.xp + " XP";
+
+  // Continuar
+  const pend = siguientePendiente();
+  if (pend) {
+    $("#continuar-tag").textContent = "Continuar";
+    $("#continuar-titulo").textContent = pend.leccion.titulo;
+    $("#continuar-sub").textContent = pend.curso.tema + " · " + pend.leccion.min + " min de lectura";
+    const pct = (aprobadas(pend.curso) / pend.curso.lecciones.length) * 100;
+    $("#continuar-barra").style.width = pct + "%";
+    $("#btn-continuar").onclick = () => abrirLeccion(pend.curso.id, pend.leccion.id);
+  } else {
+    $("#continuar-tag").textContent = "Biblioteca completa";
+    $("#continuar-titulo").textContent = "Repasar un curso";
+    $("#continuar-sub").textContent = "Ya aprobaste todos los tests. Vuelve cuando quieras.";
+    $("#continuar-barra").style.width = "100%";
+    $("#btn-continuar").onclick = () => abrirCurso(window.CURSOS[0].id);
+  }
+
+  // Cursos
+  const cont = $("#cursos");
+  cont.innerHTML = "";
+  window.CURSOS.forEach((c) => {
+    const ok = aprobadas(c);
+    const pct = Math.round((ok / c.lecciones.length) * 100);
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "curso";
+    b.innerHTML =
+      '<span class="curso-tema">' + c.tema + "</span>" +
+      '<span class="curso-nombre">' + c.titulo + "</span>" +
+      '<span class="curso-sub">' + c.sub + "</span>" +
+      '<span class="barra-mini"><span style="width:' + pct + '%"></span></span>' +
+      '<span class="curso-pie">' + ok + " de " + c.lecciones.length + " tests aprobados</span>";
+    b.addEventListener("click", () => abrirCurso(c.id));
+    cont.appendChild(b);
+  });
+
+  // Reto diario
+  const hecho = datos.diario && datos.diario.dia === hoy();
+  if (hecho) {
+    $("#diario-tag").textContent = "Reto de hoy · hecho";
+    $("#diario-titulo").textContent = "Jugar una ronda libre";
+    $("#diario-sub").textContent = "Hoy acertaste " + datos.diario.aciertos + " de " + datos.diario.total;
+  } else {
+    $("#diario-tag").textContent = "Reto de hoy";
+    $("#diario-titulo").textContent = PREGUNTAS_RETO + " preguntas sueltas";
+    $("#diario-sub").textContent = "Suma XP una vez al día";
+  }
+
+  const precision = datos.total ? Math.round((datos.aciertos / datos.total) * 100) : 0;
+  const leidas = Object.keys(datos.vistas).length;
+  $("#stats").innerHTML =
+    bloqueStat(leidas + "/" + totalLecciones(), "lecciones") +
+    bloqueStat(precision + "%", "aciertos") +
+    bloqueStat(datos.mejorRacha, "mejor racha");
+
+  $("#btn-tiempo").textContent = datos.tiempo ? "Tiempo: " + SEGUNDOS + " s" : "Tiempo: libre";
+}
+
+function bloqueStat(valor, etiqueta) {
+  return '<div class="stat"><b>' + valor + "</b><span>" + etiqueta + "</span></div>";
+}
+
+/* ── Curso ──────────────────────────────────────────────────── */
+
+function abrirCurso(cursoId) {
+  const c = cursoPorId(cursoId);
+  if (!c) return;
+  cursoAbierto = c.id;
+
+  $("#curso-tema").textContent = c.tema;
+  $("#curso-titulo").textContent = c.titulo;
+  $("#curso-desc").textContent = c.desc;
+
+  const ok = aprobadas(c);
+  $("#curso-progreso-txt").textContent = ok + " / " + c.lecciones.length;
+  $("#curso-barra").style.width = Math.round((ok / c.lecciones.length) * 100) + "%";
+
+  const cont = $("#lista-lecciones");
+  cont.innerHTML = "";
+  c.lecciones.forEach((l, i) => {
+    const visto = !!datos.vistas[l.id];
+    const nota = datos.tests[l.id];
+    const hecho = nota >= 2;
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "leccion-item" + (hecho ? " hecha" : visto ? " vista" : "");
+    b.innerHTML =
+      '<span class="num">' + (i + 1) + "</span>" +
+      '<span class="cuerpo"><span class="titulo">' + l.titulo + "</span>" +
+      '<span class="meta">' + l.min + " min · " + l.quiz.length + " preguntas" +
+      (hecho ? " · aprobada" : visto ? " · leída" : "") + "</span></span>" +
+      '<span class="marca">' + (hecho ? "✓" : "›") + "</span>";
+    b.addEventListener("click", () => abrirLeccion(c.id, l.id));
+    cont.appendChild(b);
+  });
+
+  mostrar("curso");
+}
+
+/* ── Lección ────────────────────────────────────────────────── */
+
+function abrirLeccion(cursoId, lecId) {
+  const c = cursoPorId(cursoId);
+  const l = leccionPorId(cursoId, lecId);
+  if (!c || !l) return;
+
+  cursoAbierto = c.id;
+  leccionAbierta = l.id;
+
+  const i = c.lecciones.indexOf(l);
+  $("#leccion-progreso-txt").textContent = "Lección " + (i + 1) + " de " + c.lecciones.length;
+  $("#leccion-tema").textContent = c.tema + " · " + c.titulo;
+  $("#leccion-titulo").textContent = l.titulo;
+  $("#leccion-meta").textContent = "Unos " + l.min + " minutos de lectura";
+
+  const art = $("#leccion-texto");
+  art.innerHTML = "";
+  l.texto.forEach((p) => {
+    const el = document.createElement("p");
+    el.textContent = p;
+    art.appendChild(el);
+  });
+
+  if (!datos.vistas[l.id]) {
+    datos.vistas[l.id] = true;
+    sumarXP(XP_LECTURA);
+    registrarActividad();
+    guardarDatos();
+  }
+
+  mostrar("leccion");
+}
+
 /* ── Preparación de preguntas ───────────────────────────────── */
 
-// Convierte una entrada del banco en algo jugable: opciones barajadas y
-// la posición de la respuesta correcta recalculada.
 function preparar(p, azar = Math.random) {
   const correctaTexto = p.o[p.a];
   const opciones = mezclar(p.o, azar);
   return {
-    cat: p.c,
     q: p.q,
     e: p.e,
     opciones: opciones,
@@ -91,112 +297,61 @@ function preparar(p, azar = Math.random) {
   };
 }
 
-function nombreCategoria(id) {
-  const c = window.CATEGORIAS.find((x) => x.id === id);
-  return c ? c.nombre : id;
-}
-
 function rondaDiaria() {
   const azar = generador(hashSemilla("saber-" + hoy()));
-  return mezclar(window.BANCO, azar).slice(0, POR_RONDA).map((p) => preparar(p, azar));
+  return mezclar(window.BANCO, azar).slice(0, PREGUNTAS_RETO).map((p) => preparar(p, azar));
 }
 
 function rondaLibre() {
-  return mezclar(window.BANCO).slice(0, POR_RONDA).map((p) => preparar(p));
+  return mezclar(window.BANCO).slice(0, PREGUNTAS_RETO).map((p) => preparar(p));
 }
 
-function rondaDeCategoria(cat) {
-  const delTema = window.BANCO.filter((p) => p.c === cat);
-  return mezclar(delTema).slice(0, POR_RONDA).map((p) => preparar(p));
-}
-
-/* ── Estado de la partida ───────────────────────────────────── */
+/* ── Partida ────────────────────────────────────────────────── */
 
 const partida = {
   preguntas: [],
   indice: 0,
   aciertos: 0,
-  puntos: 0,
   fallos: [],
-  modo: "diario",
-  categoria: null,
+  modo: "diario",       // diario | libre | leccion
+  cursoId: null,
+  leccionId: null,
+  etiqueta: "",
   bloqueado: false,
   temporizador: null,
-  restante: 0
+  restante: 0,
+  xpGanada: 0
 };
 
-/* ── Vistas ─────────────────────────────────────────────────── */
-
-function mostrar(vista) {
-  ["inicio", "juego", "resultado"].forEach((v) => {
-    $("#vista-" + v).classList.toggle("oculto", v !== vista);
-  });
-  window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+function empezarReto(libre) {
+  const yaHecho = datos.diario && datos.diario.dia === hoy();
+  partida.preguntas = (libre || yaHecho) ? rondaLibre() : rondaDiaria();
+  partida.modo = (libre || yaHecho) ? "libre" : "diario";
+  partida.cursoId = null;
+  partida.leccionId = null;
+  partida.etiqueta = partida.modo === "diario" ? "Reto del día" : "Ronda libre";
+  arrancar();
 }
 
-function pintarInicio() {
-  $("#racha-num").textContent = datos.racha;
-  $("#racha-txt").textContent = datos.racha === 1 ? "día seguido" : "días seguidos";
-
-  const yaJugo = datos.diario && datos.diario.dia === hoy();
-  if (yaJugo) {
-    $("#diario-tag").textContent = "Reto de hoy · hecho";
-    $("#diario-titulo").textContent = "Jugar una ronda libre";
-    $("#diario-sub").textContent = "Hoy acertaste " + datos.diario.aciertos + " de " + datos.diario.total;
-  } else {
-    $("#diario-tag").textContent = "Reto de hoy";
-    $("#diario-titulo").textContent = "Jugar " + POR_RONDA + " preguntas";
-    $("#diario-sub").textContent = "Un tema distinto cada día";
-  }
-
-  // Temas
-  const cont = $("#temas");
-  cont.innerHTML = "";
-  window.CATEGORIAS.forEach((c) => {
-    const cuantas = window.BANCO.filter((p) => p.c === c.id).length;
-    const b = document.createElement("button");
-    b.className = "tema";
-    b.type = "button";
-    b.innerHTML = "<span>" + c.nombre + "</span><small>" + cuantas + " preguntas</small>";
-    b.addEventListener("click", () => empezar("categoria", c.id));
-    cont.appendChild(b);
-  });
-
-  // Estadísticas
-  const precision = datos.total ? Math.round((datos.aciertos / datos.total) * 100) : 0;
-  $("#stats").innerHTML =
-    bloqueStat(datos.partidas, datos.partidas === 1 ? "ronda" : "rondas") +
-    bloqueStat(precision + "%", "aciertos") +
-    bloqueStat(datos.mejorRacha, "mejor racha");
-
-  $("#btn-tiempo").textContent = datos.tiempo ? "Tiempo: " + MINUTOS + " s" : "Tiempo: libre";
+function empezarTest(cursoId, lecId) {
+  const l = leccionPorId(cursoId, lecId);
+  if (!l) return;
+  partida.preguntas = l.quiz.map((p) => preparar(p));
+  partida.modo = "leccion";
+  partida.cursoId = cursoId;
+  partida.leccionId = lecId;
+  partida.etiqueta = "Test · " + cursoPorId(cursoId).tema;
+  arrancar();
 }
 
-function bloqueStat(valor, etiqueta) {
-  return '<div class="stat"><b>' + valor + "</b><span>" + etiqueta + "</span></div>";
-}
-
-/* ── Partida ────────────────────────────────────────────────── */
-
-function empezar(modo, categoria) {
-  if (modo === "categoria") {
-    partida.preguntas = rondaDeCategoria(categoria);
-  } else if (modo === "diario" && !(datos.diario && datos.diario.dia === hoy())) {
-    partida.preguntas = rondaDiaria();
-  } else {
-    partida.preguntas = rondaLibre();
-  }
-
+function arrancar() {
   Object.assign(partida, {
     indice: 0,
     aciertos: 0,
-    puntos: 0,
     fallos: [],
-    modo: modo,
-    categoria: categoria || null,
-    bloqueado: false
+    bloqueado: false,
+    xpGanada: 0
   });
-
   mostrar("juego");
   pintarPregunta();
 }
@@ -206,8 +361,8 @@ function pintarPregunta() {
   const n = partida.preguntas.length;
 
   $("#progreso-txt").textContent = (partida.indice + 1) + " / " + n;
-  $("#puntos-txt").textContent = partida.puntos + " pts";
-  $("#etiqueta-cat").textContent = nombreCategoria(p.cat);
+  $("#puntos-txt").textContent = partida.xpGanada ? "+" + partida.xpGanada + " XP" : "";
+  $("#etiqueta-cat").textContent = partida.etiqueta;
   $("#pregunta").textContent = p.q;
   $("#barra-progreso").style.width = (partida.indice / n * 100) + "%";
 
@@ -220,7 +375,7 @@ function pintarPregunta() {
     b.type = "button";
     b.className = "opcion";
     b.innerHTML = '<span class="letra">' + letras[i] + "</span><span>" + texto + "</span>";
-    b.addEventListener("click", () => responder(i, b));
+    b.addEventListener("click", () => responder(i));
     cont.appendChild(b);
   });
 
@@ -234,25 +389,24 @@ function arrancarTiempo() {
   const barra = $("#barra-tiempo");
   barra.classList.remove("urgente");
 
-  if (!datos.tiempo) {
+  // El test de una lección no lleva reloj: es para aprender, no para competir.
+  if (!datos.tiempo || partida.modo === "leccion") {
     barra.style.width = "0%";
     return;
   }
 
-  partida.restante = MINUTOS * 1000;
+  partida.restante = SEGUNDOS * 1000;
   barra.style.width = "100%";
 
   const inicio = performance.now();
   partida.temporizador = setInterval(() => {
-    const pasado = performance.now() - inicio;
-    const queda = Math.max(0, partida.restante - pasado);
+    const queda = Math.max(0, partida.restante - (performance.now() - inicio));
     const pct = (queda / partida.restante) * 100;
     barra.style.width = pct + "%";
     barra.classList.toggle("urgente", pct < 30);
-
     if (queda <= 0) {
       pararTiempo();
-      responder(-1, null);
+      responder(-1);
     }
   }, 100);
 }
@@ -264,7 +418,7 @@ function pararTiempo() {
   }
 }
 
-function responder(elegida, boton) {
+function responder(elegida) {
   if (partida.bloqueado) return;
   partida.bloqueado = true;
   pararTiempo();
@@ -272,26 +426,18 @@ function responder(elegida, boton) {
   const p = partida.preguntas[partida.indice];
   const n = partida.preguntas.length;
   const acierto = elegida === p.correcta;
-  const botones = $$("#opciones .opcion");
 
-  botones.forEach((b, i) => {
+  $$("#opciones .opcion").forEach((b, i) => {
     b.disabled = true;
     if (i === p.correcta) b.classList.add("elegida-bien");
     else if (i === elegida) b.classList.add("elegida-mal");
     else b.classList.add("apagada");
   });
 
-  // Puntos: 100 por acierto + bonus por rapidez (hasta 50).
   if (acierto) {
     partida.aciertos++;
-    let bonus = 0;
-    if (datos.tiempo) {
-      const barra = $("#barra-tiempo");
-      const pct = parseFloat(barra.style.width) || 0;
-      bonus = Math.round((pct / 100) * 50);
-    }
-    partida.puntos += 100 + bonus;
-    $("#puntos-txt").textContent = partida.puntos + " pts";
+    partida.xpGanada += XP_ACIERTO;
+    $("#puntos-txt").textContent = "+" + partida.xpGanada + " XP";
   } else {
     partida.fallos.push({
       q: p.q,
@@ -316,45 +462,64 @@ function responder(elegida, boton) {
 
 function siguiente() {
   partida.indice++;
-  if (partida.indice >= partida.preguntas.length) {
-    terminar();
-    return;
-  }
-  pintarPregunta();
+  if (partida.indice >= partida.preguntas.length) terminar();
+  else pintarPregunta();
 }
+
+/* ── Cierre de ronda ────────────────────────────────────────── */
 
 function terminar() {
   pararTiempo();
 
   const total = partida.preguntas.length;
   const aciertos = partida.aciertos;
+  const aprobado = partida.modo === "leccion" ? aciertos >= 2 : aciertos >= Math.ceil(total / 2);
 
   datos.partidas++;
   datos.aciertos += aciertos;
   datos.total += total;
 
-  // Racha y registro del reto diario solo cuentan la primera vez del día.
-  if (partida.modo === "diario" && !(datos.diario && datos.diario.dia === hoy())) {
-    datos.racha = (datos.ultimoDia === ayer()) ? datos.racha + 1 : 1;
-    datos.ultimoDia = hoy();
-    datos.mejorRacha = Math.max(datos.mejorRacha, datos.racha);
+  let extra = 0;
+
+  if (partida.modo === "leccion") {
+    const previo = datos.tests[partida.leccionId] || 0;
+    datos.tests[partida.leccionId] = Math.max(previo, aciertos);
+    if (aprobado && previo < 2) extra = XP_TEST;
+    registrarActividad();
+  } else if (partida.modo === "diario" && !(datos.diario && datos.diario.dia === hoy())) {
     datos.diario = { dia: hoy(), aciertos: aciertos, total: total };
+    registrarActividad();
+  } else {
+    // Ronda libre: sin XP extra, pero cuenta para las estadísticas.
+    partida.xpGanada = 0;
   }
 
+  partida.xpGanada += extra;
+  datos.xp += partida.xpGanada;
   guardarDatos();
+
+  $("#resultado-etiqueta").textContent = partida.modo === "leccion"
+    ? (cursoPorId(partida.cursoId).tema + " · test de la lección")
+    : (partida.modo === "diario" ? "Reto del día" : "Ronda libre");
 
   $("#aciertos").textContent = aciertos;
   $("#total-marcador").textContent = "/" + total;
 
   const razon = aciertos / total;
   let frase;
-  if (razon === 1)          frase = "Ronda perfecta. No hay nada que corregir.";
-  else if (razon >= 0.8)    frase = "Muy bien. Te faltan detalles, no bases.";
-  else if (razon >= 0.5)    frase = "Vas a la mitad. Repasa lo que falló y vuelve.";
-  else if (razon >= 0.3)    frase = "Flojo, pero ya sabes dónde está el hueco.";
-  else                      frase = "Toca estudiar. Empieza por los fallos de abajo.";
+  if (partida.modo === "leccion") {
+    frase = aprobado
+      ? "Test aprobado. La lección queda marcada."
+      : "Necesitas 2 de 3 para aprobar. Vuelve al texto y repítelo: no es un castigo, es cómo se aprende.";
+  } else if (razon === 1)      frase = "Ronda perfecta. No hay nada que corregir.";
+  else if (razon >= 0.7)       frase = "Bien. Te faltan detalles, no bases.";
+  else if (razon >= 0.4)       frase = "A la mitad. Repasa lo que falló y vuelve.";
+  else                          frase = "Flojo, pero ya sabes dónde está el hueco.";
   $("#veredicto-final").textContent = frase;
 
+  $("#xp-ganada").textContent = partida.xpGanada > 0 ? "+" + partida.xpGanada + " XP" : "";
+
+  // Fallos
   const cont = $("#fallos");
   cont.innerHTML = "";
   if (partida.fallos.length === 0) {
@@ -371,23 +536,39 @@ function terminar() {
     });
   }
 
-  $("#btn-otra").textContent = partida.modo === "categoria"
-    ? "Otra de " + nombreCategoria(partida.categoria)
-    : "Otra ronda";
+  // Botones
+  const btnOtra = $("#btn-otra");
+  if (partida.modo === "leccion") {
+    const sig = siguienteEnCurso(partida.cursoId, partida.leccionId);
+    btnOtra.textContent = sig ? "Siguiente lección" : "Volver al curso";
+    btnOtra.onclick = () => {
+      if (sig) abrirLeccion(partida.cursoId, sig.id);
+      else abrirCurso(partida.cursoId);
+    };
+  } else {
+    btnOtra.textContent = "Otra ronda";
+    btnOtra.onclick = () => empezarReto(true);
+  }
 
   mostrar("resultado");
 }
 
 /* ── Eventos ────────────────────────────────────────────────── */
 
-$("#btn-diario").addEventListener("click", () => empezar("diario"));
+$("#btn-continuar").addEventListener("click", () => {
+  const p = siguientePendiente();
+  if (p) abrirLeccion(p.curso.id, p.leccion.id);
+  else abrirCurso(window.CURSOS[0].id);
+});
+
+$("#btn-diario").addEventListener("click", () => empezarReto(false));
 $("#btn-siguiente").addEventListener("click", siguiente);
 $("#btn-inicio").addEventListener("click", () => { pintarInicio(); mostrar("inicio"); });
 
-$("#btn-otra").addEventListener("click", () => {
-  if (partida.modo === "categoria") empezar("categoria", partida.categoria);
-  else empezar("libre");
-});
+$("#btn-curso-salir").addEventListener("click", () => { pintarInicio(); mostrar("inicio"); });
+$("#btn-leccion-salir").addEventListener("click", () => abrirCurso(cursoAbierto));
+$("#btn-volver-curso").addEventListener("click", () => abrirCurso(cursoAbierto));
+$("#btn-test").addEventListener("click", () => empezarTest(cursoAbierto, leccionAbierta));
 
 $("#btn-salir").addEventListener("click", () => {
   pararTiempo();
@@ -402,15 +583,16 @@ $("#btn-tiempo").addEventListener("click", () => {
 });
 
 $("#btn-reset").addEventListener("click", () => {
-  if (!confirm("¿Borrar racha, estadísticas y progreso? No se puede deshacer.")) return;
+  if (!confirm("¿Borrar racha, XP y progreso de los cursos? No se puede deshacer.")) return;
   datos = Object.assign({}, POR_DEFECTO);
+  datos.vistas = {};
+  datos.tests = {};
   guardarDatos();
   pintarInicio();
 });
 
 document.addEventListener("keydown", (e) => {
   if ($("#vista-juego").classList.contains("oculto")) return;
-
   if (e.key >= "1" && e.key <= "4") {
     const b = $$("#opciones .opcion")[Number(e.key) - 1];
     if (b && !b.disabled) b.click();
