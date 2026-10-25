@@ -10,8 +10,8 @@ propios**: no se copió texto, interfaz ni material de ninguna app de terceros.
 
 ## Qué trae
 
-- **5 cursos, 20 lecciones, 60 preguntas de test** con explicación:
-  Historia, Ciencia, Filosofía, Economía y Geopolítica.
+- **6 cursos, 24 lecciones, 72 preguntas de test** con explicación:
+  Historia, Tecnología, Ciencia, Filosofía, Economía y Geopolítica.
 - Cada lección: 4-5 minutos de lectura, párrafos con datos concretos, y un test
   de 3 preguntas. Se aprueba con 2 de 3.
 - **XP y niveles**: +10 por leer, +10 por acierto, +30 por aprobar un test la
@@ -20,10 +20,9 @@ propios**: no se copió texto, interfaz ni material de ninguna app de terceros.
 - **Reto diario**: 10 preguntas de un banco de 90, elegidas de forma
   determinista por fecha. Suma XP una vez al día; repetir es ronda libre.
 - **Repaso de fallos** al final de cada ronda, con la respuesta correcta.
-- **20 imágenes** de portada, una por lección, más una portada por curso. Son
-  de Wikimedia Commons con licencia libre (dominio público, CC0, CC BY o
-  CC BY-SA); la app trae una pantalla de **créditos** con autor, licencia y
-  enlace a cada archivo original.
+- **24 ilustraciones propias**, una por lección (la portada de cada curso
+  reutiliza una de ellas). Son dibujos generados con código, sin fotos ni
+  material de terceros: no requieren atribución.
 - **Modo oscuro por defecto**, tipografía editorial y peso total de ~1 MB:
   carga rápido y queda cacheada para funcionar sin conexión.
 - **Funciona sin internet** una vez cargada (service worker).
@@ -99,40 +98,38 @@ Todo está en `js/cursos.js`:
 El banco del reto diario está en `js/questions.js`, con 90 preguntas en seis
 categorías y el mismo formato.
 
-## Imágenes y créditos
+## Ilustraciones
 
-Las 20 imágenes viven en `images/<id>.webp` (720×405, WebP calidad 78, ~45 KB
-cada una) y sus datos en `credits.json`. No se copió material de ninguna app:
-todas son archivos libres de Wikimedia Commons, filtrados por licencia
-(dominio público, CC0, CC BY, CC BY-SA) y recortados a 16:9.
+Las 24 imágenes viven en `images/<id>.webp` (720×405, WebP calidad 82, 4-30 KB
+cada una). No son fotos ni material descargado: las dibuja un script propio con
+formas geométricas, en un estilo de serigrafía sobre fondo tinta, con dos
+acentos (ámbar y coral). Por eso no hay créditos ni atribuciones que cumplir.
 
-La pantalla **Créditos de imágenes** (pie del inicio) cumple la atribución de
-las licencias CC: muestra lección, autor, licencia y enlace a la ficha. Si
-cambias una imagen, actualiza también `credits.json` — o vuelve a bajarla con
-el script, que lo hace solo:
+Se regeneran todas, o solo algunas, con:
 
 ```bash
-python3 herramientas/bajar-imagenes.py
+python3 herramientas/hacer-ilustraciones.py          # las 24
+python3 herramientas/hacer-ilustraciones.py f1 t3    # solo esas
 ```
 
-El script busca por título exacto o por búsqueda, descarta lo que no tenga
-licencia libre, recorta con sesgo hacia arriba (para no cortar caras) y guarda
-WebP. Respeta el límite de peticiones de Commons (2 s entre llamadas, con
-reintentos si responde 429).
+Cada escena es una función del script (`h1`, `t3`, …) y comparte las mismas
+primitivas: `poly`, `rect`, `circ`, `linea`, `arco`, más piezas reutilizables
+como `multitud`, `fabrica`, `columna`, `globo` y `chip`. Se dibuja a 3× y se
+reduce, así los bordes quedan limpios. Si agregas una lección, añade su escena
+al diccionario `ESCENAS` y genera solo esa.
 
 ## Archivos
 
 ```
-index.html            vistas: inicio, curso, lección, test, resultado, créditos
+index.html            vistas: inicio, curso, lección, test, resultado
 css/styles.css        estilos (tinta verdosa + ámbar, serif editorial)
-js/cursos.js          5 cursos: texto de las lecciones y sus tests
+js/cursos.js          6 cursos: texto de las lecciones y sus tests
 js/questions.js       banco de 90 preguntas del reto diario
 js/app.js             lógica: navegación, progreso, XP, racha, reto diario
-credits.json          autor, licencia y enlace de cada imagen
-images/               20 portadas WebP (una por lección)
+images/               24 ilustraciones WebP (una por lección)
 sw.js                 caché offline (shell + imágenes)
 manifest.webmanifest  datos de instalación como app
-herramientas/bajar-imagenes.py  descarga y recorta las imágenes libres
+herramientas/hacer-ilustraciones.py  dibuja las 24 ilustraciones
 servir.sh             servidor local para el teléfono
 publicar.sh           sube a GitHub Pages y sube la versión del caché
 icons/                iconos 180, 192, 512 y maskable

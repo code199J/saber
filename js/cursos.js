@@ -95,6 +95,97 @@ window.CURSOS = [
   },
 
   {
+    id: "tecnologia",
+    portada: "images/t1.webp",
+    tema: "Tecnología",
+    titulo: "Cómo llegamos hasta aquí",
+    sub: "chips · Internet · IA · móviles",
+    desc: "Cuatro inventos que hoy parecen normales y que hace ochenta años no existían. Quién los hizo y qué cambiaron.",
+    lecciones: [
+      {
+        id: "t1",
+        img: "images/t1.webp",
+        titulo: "Del transistor al chip",
+        min: 5,
+        texto: [
+          "En 1945 la computadora ENIAC ocupaba una sala entera y tenía unas 18.000 válvulas de vidrio. Cada válvula era una bombilla que se calentaba, consumía energía y se quemaba cada pocas horas: mantenerla encendida era un trabajo en sí mismo. El problema no era la lógica —las máquinas ya podían calcular—, sino el interruptor.",
+          "El 23 de diciembre de 1947, en los laboratorios Bell, en Nueva Jersey, John Bardeen y Walter Brattain conectaron dos contactos de oro a un cristal de germanio y lograron amplificar una señal. Era el primer transistor: un interruptor sólido, sin vidrio ni vacío, que no se quemaba. William Shockley, su jefe de equipo, perfeccionó la versión de unión en 1948, y los tres compartieron el Nobel de Física en 1956. Diez años después, Jack Kilby, en Texas Instruments, puso varios componentes en una misma pastilla de germanio: el circuito integrado. En 1959 Robert Noyce, en Fairchild, hizo la versión práctica en silicio, con las conexiones impresas en aluminio. Esa es la arquitectura que seguimos usando. Kilby recibió el Nobel en 2000; Noyce había muerto diez años antes.",
+          "En 1965 Gordon Moore, químico y futuro cofundador de Intel, notó que el número de componentes por chip se duplicaba más o menos cada año, y en 1975 ajustó el ritmo a dos años. La «ley de Moore» no es una ley de la física: es una observación económica. La industria la tomó como meta y durante medio siglo la cumplió. En 1971 el Intel 4004, primer microprocesador comercial, tenía 2.300 transistores y corría a 740 kHz. Un chip de teléfono actual pasa de los 15.000 millones.",
+          "Ese ritmo se está agotando. Un transistor de 2 o 3 nanómetros mide unas pocas decenas de átomos de ancho, y las fugas de corriente y el calor ponen un techo. El costo por transistor ya no baja como antes y una planta de vanguardia cuesta más de 20.000 millones de dólares. La respuesta de la industria es apilar capas, combinar varios chips pequeños —chiplets— y diseñar arquitecturas específicas para inteligencia artificial. Y hay un cuello de botella geopolítico: las máquinas de litografía ultravioleta extrema solo las fabrica ASML, en Países Bajos, y la mayor parte de los chips avanzados sale de TSMC, en Taiwán."
+        ],
+        quiz: [
+          { q: "¿Qué ventaja tenía el transistor frente a las válvulas de vidrio?", o: ["Era más rápido que la electricidad", "No se quemaba ni necesitaba vacío", "No usaba electricidad", "Se podía programar"], a: 1,
+            e: "Un transistor es un interruptor sólido: no tiene filamento que se funda ni necesita una ampolla al vacío." },
+          { q: "¿Quién hizo la versión práctica en silicio del circuito integrado?", o: ["Jack Kilby", "Robert Noyce", "Gordon Moore", "William Shockley"], a: 1,
+            e: "Kilby lo logró primero en germanio (1958); Noyce lo pasó a silicio con interconexiones de aluminio en 1959." },
+          { q: "¿Qué dice la ley de Moore?", o: ["Los chips se abaratan cada año", "Los transistores por chip se duplican cada dos años aproximadamente", "La velocidad se triplica cada década", "El precio del silicio es fijo"], a: 1,
+            e: "Es una observación sobre la densidad de componentes, no una ley física; se cumplió durante medio siglo." }
+        ]
+      },
+      {
+        id: "t2",
+        img: "images/t2.webp",
+        titulo: "Internet antes de la web",
+        min: 5,
+        texto: [
+          "A principios de los sesenta, las redes de comunicación funcionaban como una central telefónica: si caía el nodo central, todo caía. Paul Baran, en la RAND, y Donald Davies, en el laboratorio británico NPL, llegaron por separado a la misma idea: dividir los mensajes en paquetes pequeños que viajan por rutas distintas y se rearman al llegar. Leonard Kleinrock había publicado la teoría matemática en 1961. A esa técnica se le llama conmutación de paquetes, y es la base de todo lo que vino después.",
+          "El 29 de octubre de 1969, un equipo de la Universidad de California en Los Ángeles conectó su computadora con la del Stanford Research Institute. Escribieron «LOGIN» y el sistema se cayó después de «LO». Un mes después había cuatro nodos: UCLA, Stanford, la Universidad de California en Santa Bárbara y la de Utah. La red se llamó ARPANET y era un proyecto del Departamento de Defensa. En 1971 Ray Tomlinson envió el primer correo electrónico y eligió la arroba para separar usuario y máquina. En 1973 Vint Cerf y Robert Kahn diseñaron TCP, que junto a IP permitía unir redes distintas. El 1 de enero de 1983 ARPANET cambió a TCP/IP de golpe, en un solo día coordinado.",
+          "Internet ya existía, pero era para universidades. En marzo de 1989 Tim Berners-Lee, un físico británico del CERN en Ginebra, entregó un documento proponiendo un sistema de documentos enlazados por hipertexto sobre esa red. Su jefe lo aprobó con una nota que se hizo famosa: «vago, pero interesante». En 1990 ya funcionaban el primer servidor y el primer navegador; en 1991 abrió el primer sitio público; en 1993 el CERN liberó el código sin regalías, y eso lo cambió todo. Ese mismo año el navegador Mosaic puso imágenes dentro de la página, y en 1994 apareció Netscape.",
+          "Conviene no confundir dos cosas. Internet es la infraestructura: cables, routers, el protocolo IP. La web es un servicio que corre encima, como el correo o las videollamadas. Hoy unos 5.500 millones de personas usan Internet, alrededor del 68 % de la humanidad, y más de la mitad del tráfico es video. Lo que empezó como cuatro computadoras conectadas es la obra de ingeniería civil más grande que hemos construido."
+        ],
+        quiz: [
+          { q: "¿En qué año se conectaron los primeros nodos de ARPANET?", o: ["1961", "1969", "1973", "1983"], a: 1,
+            e: "El primer enlace fue en octubre de 1969 entre UCLA y Stanford; a fin de año eran cuatro nodos." },
+          { q: "¿Qué ocurrió el 1 de enero de 1983?", o: ["Se creó la web", "ARPANET adoptó TCP/IP", "Nació el correo electrónico", "Se abrió la primera web"], a: 1,
+            e: "Fue el «flag day»: toda la red pasó a TCP/IP el mismo día, y de ahí sale Internet como red de redes." },
+          { q: "¿Cuál es la diferencia entre Internet y la web?", o: ["Son lo mismo", "La web es un servicio que funciona sobre Internet", "Internet es un navegador", "La web es más antigua"], a: 1,
+            e: "Internet es la infraestructura de redes; la web es uno de sus servicios, con HTTP y HTML." }
+        ]
+      },
+      {
+        id: "t3",
+        img: "images/t3.webp",
+        titulo: "De Turing a los transformers",
+        min: 6,
+        texto: [
+          "En 1950, Alan Turing publicó un artículo con una pregunta incómoda: «¿pueden pensar las máquinas?». Como no había forma de definir pensar, propuso un experimento: el juego de la imitación. Una persona conversa por texto con otra persona y con una máquina; si no puede distinguir con quién habla, la máquina pasa la prueba. Turing no decía que eso fuera conciencia; decía que era la única pregunta que podíamos responder con evidencia.",
+          "En el verano de 1956, en Dartmouth College, se reunieron John McCarthy, Marvin Minsky, Claude Shannon y Nathaniel Rochester para un taller de dos meses. McCarthy acuñó el nombre del campo: inteligencia artificial. Prometieron resultados en una generación y se equivocaron por décadas. Hubo dos inviernos: entre 1974 y 1980, cuando un informe británico y los recortes de financiamiento frenaron la investigación, y entre 1987 y 1993, cuando colapsó el mercado de las máquinas Lisp. La idea de las redes neuronales sobrevivió en los márgenes, con poco dinero y mala reputación.",
+          "El giro llegó por dos vías. En 1986 Rumelhart, Hinton y Williams popularizaron la retropropagación del error, el algoritmo que permite ajustar millones de pesos internos. Y en 2012, AlexNet —una red de Krizhevsky, Sutskever y Hinton— ganó el concurso ImageNet entrenando con tarjetas gráficas: el error cayó del 26 % al 15 %. Nadie volvió a mirar igual las GPUs. En 2016 AlphaGo venció a Lee Sedol, y en 2017 un equipo de Google publicó «Attention Is All You Need», el artículo que presentó el transformer.",
+          "El transformer permitió entrenar modelos con cantidades enormes de texto en paralelo. De ahí salieron los modelos de lenguaje. ChatGPT se abrió al público en noviembre de 2022 y llegó a 100 millones de usuarios en dos meses: el producto de consumo de adopción más rápida hasta entonces. Lo que vino después son modelos que también ven y oyen, y agentes que ejecutan tareas. Los límites siguen ahí: inventan datos con seguridad, gastan mucha energía y dependen de textos escritos por humanos. Saben predecir muy bien; no sabemos si entienden."
+        ],
+        quiz: [
+          { q: "¿Qué propuso Turing en 1950?", o: ["Construir un cerebro electrónico", "Un test basado en la conversación", "Prohibir las máquinas pensantes", "Un idioma para computadoras"], a: 1,
+            e: "El juego de la imitación: si no distingues a la máquina de una persona por chat, pasa la prueba." },
+          { q: "¿Qué arquitectura de 2017 hizo posibles los modelos de lenguaje actuales?", o: ["La retropropagación", "El perceptrón", "El transformer", "Las máquinas Lisp"], a: 2,
+            e: "El artículo «Attention Is All You Need» introdujo el transformer, base de los modelos actuales." },
+          { q: "¿Por qué fue importante AlexNet en 2012?", o: ["Fue el primer programa de ajedrez", "Mostró que entrenar redes con GPUs superaba los métodos clásicos", "Inventó el correo electrónico", "Tradujo por primera vez"], a: 1,
+            e: "Ganó ImageNet bajando el error del 26 % al 15 % y abrió la era del aprendizaje profundo." }
+        ]
+      },
+      {
+        id: "t4",
+        img: "images/t4.webp",
+        titulo: "El teléfono que se comió el mundo",
+        min: 5,
+        texto: [
+          "El 3 de abril de 1973, Martin Cooper, ingeniero de Motorola, caminó por una acera de Manhattan con un teléfono de 1,1 kilos y llamó a Joel Engel, de Bell Labs, que trabajaba en la competencia. La primera llamada desde un móvil portátil fue, sobre todo, una provocación entre empresas. La idea de fondo era otra: dividir la ciudad en celdas pequeñas para reutilizar frecuencias en cada una. De ahí viene la palabra «celular».",
+          "La primera red comercial llegó en 1979 en Japón, con NTT. En 1983 Motorola puso a la venta el DynaTAC 8000X: 790 gramos, 30 minutos de llamada y 10 horas de carga, por 3.995 dólares de entonces. En 1991 Finlandia estrenó la red 2G GSM, y el 3 de diciembre de 1992 se envió el primer SMS de la historia: «Merry Christmas». En 1999 Japón lanzó i-mode y el teléfono empezó a conectarse a Internet.",
+          "El cambio de categoría fue en 2007. El iPhone eliminó el teclado físico, puso una pantalla capacitiva multitáctil y un navegador completo, y convirtió el teléfono en una computadora que se maneja con el dedo. En 2008 llegaron la App Store y el primer Android, y con ellos un ecosistema de aplicaciones que hoy mueve cientos de miles de millones de dólares. El resto fue adopción: hoy hay más líneas móviles que personas.",
+          "El smartphone reemplazó la cámara, el GPS, el reloj, la radio, la agenda y, en media docena de países, el dinero en efectivo. También trajo costos: la economía de la atención, la vigilancia publicitaria, la brecha de quienes no tienen acceso y un problema material serio. Cada teléfono lleva cobalto, litio, oro y estaño, a veces extraídos en condiciones duras, y el mundo genera unos 60 millones de toneladas de basura electrónica al año, de las que solo se recicla una quinta parte. La herramienta más ubicua del planeta es también la que más rápido se descarta."
+        ],
+        quiz: [
+          { q: "¿Quién hizo la primera llamada desde un móvil portátil?", o: ["Steve Jobs", "Martin Cooper", "Joel Engel", "Vint Cerf"], a: 1,
+            e: "Cooper, de Motorola, llamó en 1973 a su competidor de Bell Labs desde una calle de Nueva York." },
+          { q: "¿Qué cambió el iPhone cuando salió en 2007?", o: ["Añadió un teclado físico", "Puso pantalla táctil capacitiva y navegador completo", "Inventó el SMS", "Creó la red 2G"], a: 1,
+            e: "Eliminó el teclado y llevó la web completa al bolsillo; en 2008 llegó la App Store." },
+          { q: "¿Cuándo se envió el primer SMS?", o: ["1983", "1991", "1992", "1999"], a: 2,
+            e: "El 3 de diciembre de 1992, con el mensaje «Merry Christmas» en una red GSM." }
+        ]
+      }
+    ]
+  },
+
+  {
     id: "ciencia",
     portada: "images/c1.webp",
     tema: "Ciencia",

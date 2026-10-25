@@ -133,7 +133,7 @@ function registrarActividad() {
 
 /* ── Vistas ─────────────────────────────────────────────────── */
 
-const VISTAS = ["inicio", "curso", "leccion", "juego", "resultado", "creditos"];
+const VISTAS = ["inicio", "curso", "leccion", "juego", "resultado"];
 
 function mostrar(vista) {
   VISTAS.forEach((v) => $("#vista-" + v).classList.toggle("oculto", v !== vista));
@@ -296,60 +296,6 @@ function abrirLeccion(cursoId, lecId) {
   }
 
   mostrar("leccion");
-}
-
-/* ── Créditos de las imágenes ───────────────────────────────── */
-
-let creditosCargados = null;
-
-async function abrirCreditos() {
-  mostrar("creditos");
-  if (creditosCargados) { pintarCreditos(creditosCargados); return; }
-  try {
-    const r = await fetch("credits.json");
-    creditosCargados = await r.json();
-  } catch (e) {
-    creditosCargados = null;
-  }
-  pintarCreditos(creditosCargados);
-}
-
-function pintarCreditos(lista) {
-  const cont = $("#lista-creditos");
-  cont.innerHTML = "";
-  if (!lista) {
-    cont.innerHTML = '<p class="curso-desc">No se pudieron cargar los créditos. Abre la app con conexión al menos una vez.</p>';
-    return;
-  }
-
-  const porId = {};
-  window.CURSOS.forEach((c) => c.lecciones.forEach((l) => { porId[l.id] = l; }));
-
-  Object.keys(lista).forEach((id) => {
-    const cr = lista[id];
-    const lec = porId[id];
-    const div = document.createElement("div");
-    div.className = "credito";
-
-    const a = document.createElement("a");
-    a.href = cr.pagina || "#";
-    a.target = "_blank";
-    a.rel = "noopener noreferrer";
-    a.textContent = lec ? lec.titulo : String(cr.titulo || "").replace(/^File:/, "");
-    div.appendChild(a);
-
-    const autor = document.createElement("span");
-    autor.className = "autor";
-    autor.textContent = (cr.autor || "Autor desconocido") + " · " + String(cr.titulo || "").replace(/^File:/, "");
-    div.appendChild(autor);
-
-    const lic = document.createElement("span");
-    lic.className = "lic";
-    lic.textContent = cr.licencia || "";
-    div.appendChild(lic);
-
-    cont.appendChild(div);
-  });
 }
 
 /* ── Preparación de preguntas ───────────────────────────────── */
@@ -632,9 +578,6 @@ $("#btn-continuar").addEventListener("click", () => {
 $("#btn-diario").addEventListener("click", () => empezarReto(false));
 $("#btn-siguiente").addEventListener("click", siguiente);
 $("#btn-inicio").addEventListener("click", () => { pintarInicio(); mostrar("inicio"); });
-$("#btn-creditos").addEventListener("click", abrirCreditos);
-$("#btn-creditos-salir").addEventListener("click", () => { pintarInicio(); mostrar("inicio"); });
-
 $("#btn-curso-salir").addEventListener("click", () => { pintarInicio(); mostrar("inicio"); });$("#btn-leccion-salir").addEventListener("click", () => abrirCurso(cursoAbierto));
 $("#btn-volver-curso").addEventListener("click", () => abrirCurso(cursoAbierto));
 $("#btn-test").addEventListener("click", () => empezarTest(cursoAbierto, leccionAbierta));
