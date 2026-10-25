@@ -55,6 +55,25 @@ Para tenerla instalada de verdad y offline en el teléfono, súbela gratis:
 Al quedar en `https://`, el navegador ya ofrece *Instalar app* y el service
 worker cachea todo: abre sin internet y sin la laptop encendida.
 
+## Publicada
+
+**https://code199j.github.io/saber/**
+
+Se abre desde cualquier teléfono o PC, con o sin la laptop encendida. En el
+teléfono: abre esa URL en Chrome → menú → **Instalar app** (o *Agregar a
+pantalla de inicio*). Queda con icono propio, pantalla completa y funciona sin
+internet después de la primera carga.
+
+### Actualizarla
+
+```bash
+./publicar.sh "qué cambió"
+```
+
+Sube la carpeta a GitHub Pages y **sube sola la versión del caché** del service
+worker (`saber-vN`), que es lo que evita que el teléfono siga mostrando la
+versión vieja. Tarda ~1 minuto en refrescar.
+
 ## Editar las preguntas
 
 Todo el contenido está en `js/questions.js`. El formato es:
