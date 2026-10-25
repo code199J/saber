@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Saber · cultura general</title>
+<meta name="description" content="Trivia diaria de cultura general. Sin cuentas, sin anuncios, sin pagos.">
+<meta name="theme-color" content="#0B171B">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<main id="app">
+
+  <section id="vista-inicio" class="vista">
+    <header class="marca">
+      <h1>Saber<span class="punto">.</span></h1>
+      <p class="lema">Cultura general, diez preguntas al día.</p>
+    </header>
+
+    <div class="racha">
+      <span class="racha-num" id="racha-num">0</span>
+      <span class="racha-txt" id="racha-txt">días seguidos</span>
+    </div>
+
+    <button class="diario" id="btn-diario">
+      <span class="diario-tag" id="diario-tag">Reto de hoy</span>
+      <span class="diario-titulo" id="diario-titulo">Jugar 10 preguntas</span>
+      <span class="diario-sub" id="diario-sub">Un tema distinto cada día</span>
+    </button>
+
+    <h2 class="sec">Elige un tema</h2>
+    <div class="temas" id="temas"></div>
+
+    <div class="stats" id="stats"></div>
+
+    <footer class="pie">
+      <button class="enlace" id="btn-tiempo">Tiempo: 25 s</button>
+      <span class="sep">·</span>
+      <button class="enlace" id="btn-reset">Borrar progreso</button>
+    </footer>
+  </section>
+
+  <section id="vista-juego" class="vista oculto">
+    <header class="barra">
+      <button class="icono" id="btn-salir" aria-label="Salir al inicio">←</button>
+      <span class="progreso-txt" id="progreso-txt">1 / 10</span>
+      <span class="puntos" id="puntos-txt">0 pts</span>
+    </header>
+
+    <div class="barra-progreso"><span id="barra-progreso"></span></div>
+    <div class="tiempo"><span id="barra-tiempo"></span></div>
+
+    <p class="etiqueta" id="etiqueta-cat">Historia</p>
+    <h2 class="pregunta" id="pregunta"></h2>
+
+    <div class="opciones" id="opciones"></div>
+
+    <div class="feedback oculto" id="feedback" aria-live="polite">
+      <p class="veredicto" id="veredicto"></p>
+      <p class="explica" id="explica"></p>
+      <button class="siguiente" id="btn-siguiente">Siguiente</button>
+    </div>
+  </section>
+
+  <section id="vista-resultado" class="vista oculto">
+    <p class="etiqueta">Resultado</p>
+    <p class="marcador"><span id="aciertos">0</span><small id="total-marcador">/10</small></p>
+    <p class="veredicto-final" id="veredicto-final"></p>
+    <div class="acciones">
+      <button class="primario" id="btn-otra">Otra ronda</button>
+      <button class="secundario" id="btn-inicio">Inicio</button>
+    </div>
+    <div class="fallos" id="fallos"></div>
+  </section>
+
+</main>
+
+<script src="js/questions.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
