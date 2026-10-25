@@ -1,6 +1,6 @@
 /* Service worker mínimo: cachea el shell para jugar sin conexión. */
 
-const CACHE = "saber-v4";
+const CACHE = "saber-v5";
 const ARCHIVOS = [
   "./",
   "./index.html",
