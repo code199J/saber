@@ -20,8 +20,12 @@ propios**: no se copió texto, interfaz ni material de ninguna app de terceros.
 - **Reto diario**: 10 preguntas de un banco de 90, elegidas de forma
   determinista por fecha. Suma XP una vez al día; repetir es ronda libre.
 - **Repaso de fallos** al final de cada ronda, con la respuesta correcta.
-- **Modo oscuro por defecto**, tipografía editorial y cero imágenes: carga
-  instantánea y no gasta datos.
+- **20 imágenes** de portada, una por lección, más una portada por curso. Son
+  de Wikimedia Commons con licencia libre (dominio público, CC0, CC BY o
+  CC BY-SA); la app trae una pantalla de **créditos** con autor, licencia y
+  enlace a cada archivo original.
+- **Modo oscuro por defecto**, tipografía editorial y peso total de ~1 MB:
+  carga rápido y queda cacheada para funcionar sin conexión.
 - **Funciona sin internet** una vez cargada (service worker).
 - Se instala en el teléfono como app desde el navegador.
 
@@ -95,16 +99,40 @@ Todo está en `js/cursos.js`:
 El banco del reto diario está en `js/questions.js`, con 90 preguntas en seis
 categorías y el mismo formato.
 
+## Imágenes y créditos
+
+Las 20 imágenes viven en `images/<id>.webp` (720×405, WebP calidad 78, ~45 KB
+cada una) y sus datos en `credits.json`. No se copió material de ninguna app:
+todas son archivos libres de Wikimedia Commons, filtrados por licencia
+(dominio público, CC0, CC BY, CC BY-SA) y recortados a 16:9.
+
+La pantalla **Créditos de imágenes** (pie del inicio) cumple la atribución de
+las licencias CC: muestra lección, autor, licencia y enlace a la ficha. Si
+cambias una imagen, actualiza también `credits.json` — o vuelve a bajarla con
+el script, que lo hace solo:
+
+```bash
+python3 herramientas/bajar-imagenes.py
+```
+
+El script busca por título exacto o por búsqueda, descarta lo que no tenga
+licencia libre, recorta con sesgo hacia arriba (para no cortar caras) y guarda
+WebP. Respeta el límite de peticiones de Commons (2 s entre llamadas, con
+reintentos si responde 429).
+
 ## Archivos
 
 ```
-index.html            vistas: inicio, curso, lección, test, resultado
+index.html            vistas: inicio, curso, lección, test, resultado, créditos
 css/styles.css        estilos (tinta verdosa + ámbar, serif editorial)
 js/cursos.js          5 cursos: texto de las lecciones y sus tests
 js/questions.js       banco de 90 preguntas del reto diario
 js/app.js             lógica: navegación, progreso, XP, racha, reto diario
-sw.js                 caché offline
+credits.json          autor, licencia y enlace de cada imagen
+images/               20 portadas WebP (una por lección)
+sw.js                 caché offline (shell + imágenes)
 manifest.webmanifest  datos de instalación como app
+herramientas/bajar-imagenes.py  descarga y recorta las imágenes libres
 servir.sh             servidor local para el teléfono
 publicar.sh           sube a GitHub Pages y sube la versión del caché
 icons/                iconos 180, 192, 512 y maskable

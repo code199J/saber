@@ -36,10 +36,15 @@
     </div>
 
     <button class="continuar" id="btn-continuar">
-      <span class="continuar-tag" id="continuar-tag">Continuar</span>
-      <span class="continuar-titulo" id="continuar-titulo">Cargando…</span>
-      <span class="continuar-sub" id="continuar-sub"></span>
-      <span class="barra-mini"><span id="continuar-barra"></span></span>
+      <span class="continuar-media">
+        <img id="continuar-img" alt="" width="720" height="405" loading="lazy" decoding="async">
+      </span>
+      <span class="continuar-cuerpo">
+        <span class="continuar-tag" id="continuar-tag">Continuar</span>
+        <span class="continuar-titulo" id="continuar-titulo">Cargando…</span>
+        <span class="continuar-sub" id="continuar-sub"></span>
+        <span class="barra-mini"><span id="continuar-barra"></span></span>
+      </span>
     </button>
 
     <h2 class="sec">Biblioteca</h2>
@@ -57,8 +62,24 @@
     <footer class="pie">
       <button class="enlace" id="btn-tiempo">Tiempo: 25 s</button>
       <span class="sep">·</span>
+      <button class="enlace" id="btn-creditos">Créditos de imágenes</button>
+      <span class="sep">·</span>
       <button class="enlace" id="btn-reset">Borrar progreso</button>
     </footer>
+  </section>
+
+  <!-- ── Créditos ─────────────────────────────────────────── -->
+  <section id="vista-creditos" class="vista oculto">
+    <header class="barra">
+      <button class="icono" id="btn-creditos-salir" aria-label="Volver al inicio">←</button>
+      <span class="progreso-txt">Créditos</span>
+    </header>
+
+    <p class="etiqueta">Imágenes</p>
+    <h2 class="curso-titulo">De dónde salen</h2>
+    <p class="curso-desc">Todas vienen de Wikimedia Commons con licencia libre: dominio público, CC0, CC BY o CC BY-SA. Cada ficha indica el autor y la licencia, y el título enlaza al archivo original.</p>
+
+    <div class="creditos" id="lista-creditos"></div>
   </section>
 
   <!-- ── Curso ────────────────────────────────────────────── -->
@@ -67,6 +88,10 @@
       <button class="icono" id="btn-curso-salir" aria-label="Volver al inicio">←</button>
       <span class="progreso-txt" id="curso-progreso-txt">0 / 4</span>
     </header>
+
+    <div class="hero">
+      <img id="curso-img" alt="" width="720" height="405" decoding="async">
+    </div>
 
     <p class="etiqueta" id="curso-tema">Historia</p>
     <h2 class="curso-titulo" id="curso-titulo"></h2>
@@ -83,6 +108,10 @@
       <button class="icono" id="btn-leccion-salir" aria-label="Volver al curso">←</button>
       <span class="progreso-txt" id="leccion-progreso-txt"></span>
     </header>
+
+    <div class="hero">
+      <img id="leccion-img" alt="" width="720" height="405" decoding="async">
+    </div>
 
     <p class="etiqueta" id="leccion-tema"></p>
     <h2 class="leccion-titulo" id="leccion-titulo"></h2>

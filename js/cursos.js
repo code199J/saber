@@ -5,6 +5,7 @@ window.CURSOS = [
 
   {
     id: "historia",
+    portada: "images/h3.webp",
     tema: "Historia",
     titulo: "Las cuatro rupturas",
     sub: "1789 · 1830 · 1917 · 1989",
@@ -12,6 +13,7 @@ window.CURSOS = [
     lecciones: [
       {
         id: "h1",
+        img: "images/h1.webp",
         titulo: "1789: el fin del Antiguo Régimen",
         min: 5,
         texto: [
@@ -31,6 +33,7 @@ window.CURSOS = [
       },
       {
         id: "h2",
+        img: "images/h2.webp",
         titulo: "1830: la máquina cambia al ser humano",
         min: 5,
         texto: [
@@ -50,6 +53,7 @@ window.CURSOS = [
       },
       {
         id: "h3",
+        img: "images/h3.webp",
         titulo: "1917: el imperio que se cae en un año",
         min: 5,
         texto: [
@@ -69,6 +73,7 @@ window.CURSOS = [
       },
       {
         id: "h4",
+        img: "images/h4.webp",
         titulo: "1989: el derrumbe que nadie predijo",
         min: 5,
         texto: [
@@ -91,6 +96,7 @@ window.CURSOS = [
 
   {
     id: "ciencia",
+    portada: "images/c1.webp",
     tema: "Ciencia",
     titulo: "Cómo se armó el universo",
     sub: "Del Big Bang al CRISPR",
@@ -98,6 +104,7 @@ window.CURSOS = [
     lecciones: [
       {
         id: "c1",
+        img: "images/c1.webp",
         titulo: "El universo tiene fecha de nacimiento",
         min: 5,
         texto: [
@@ -117,6 +124,7 @@ window.CURSOS = [
       },
       {
         id: "c2",
+        img: "images/c2.webp",
         titulo: "La gravedad no es una fuerza",
         min: 5,
         texto: [
@@ -136,6 +144,7 @@ window.CURSOS = [
       },
       {
         id: "c3",
+        img: "images/c3.webp",
         titulo: "La evolución no es una opinión",
         min: 5,
         texto: [
@@ -155,6 +164,7 @@ window.CURSOS = [
       },
       {
         id: "c4",
+        img: "images/c4.webp",
         titulo: "El manual de instrucciones",
         min: 5,
         texto: [
@@ -177,6 +187,7 @@ window.CURSOS = [
 
   {
     id: "filosofia",
+    portada: "images/f3.webp",
     tema: "Filosofía",
     titulo: "Atenas sigue hablando",
     sub: "Sócrates · Platón · Aristóteles · estoicos",
@@ -184,6 +195,7 @@ window.CURSOS = [
     lecciones: [
       {
         id: "f1",
+        img: "images/f1.webp",
         titulo: "Sócrates: preguntar hasta el fondo",
         min: 4,
         texto: [
@@ -203,6 +215,7 @@ window.CURSOS = [
       },
       {
         id: "f2",
+        img: "images/f2.webp",
         titulo: "Platón: la cueva y las sombras",
         min: 5,
         texto: [
@@ -222,6 +235,7 @@ window.CURSOS = [
       },
       {
         id: "f3",
+        img: "images/f3.webp",
         titulo: "Aristóteles: bajar las ideas al suelo",
         min: 5,
         texto: [
@@ -241,6 +255,7 @@ window.CURSOS = [
       },
       {
         id: "f4",
+        img: "images/f4.webp",
         titulo: "Estoicismo: lo que sí depende de ti",
         min: 4,
         texto: [
@@ -263,6 +278,7 @@ window.CURSOS = [
 
   {
     id: "economia",
+    portada: "images/e2.webp",
     tema: "Economía",
     titulo: "Dinero, precios y deuda",
     sub: "Lo que mueve tu bolsillo",
@@ -270,6 +286,7 @@ window.CURSOS = [
     lecciones: [
       {
         id: "e1",
+        img: "images/e1.webp",
         titulo: "Qué es el dinero, en realidad",
         min: 4,
         texto: [
@@ -289,6 +306,7 @@ window.CURSOS = [
       },
       {
         id: "e2",
+        img: "images/e2.webp",
         titulo: "Inflación: el impuesto que no se vota",
         min: 5,
         texto: [
@@ -308,6 +326,7 @@ window.CURSOS = [
       },
       {
         id: "e3",
+        img: "images/e3.webp",
         titulo: "Bancos centrales: el freno y el acelerador",
         min: 5,
         texto: [
@@ -327,6 +346,7 @@ window.CURSOS = [
       },
       {
         id: "e4",
+        img: "images/e4.webp",
         titulo: "Deuda: la cuenta que siempre llega",
         min: 5,
         texto: [
@@ -349,6 +369,7 @@ window.CURSOS = [
 
   {
     id: "geopolitica",
+    portada: "images/g4.webp",
     tema: "Geopolítica",
     titulo: "El mundo desde 1945",
     sub: "Guerra Fría · petróleo · China · hoy",
@@ -356,6 +377,7 @@ window.CURSOS = [
     lecciones: [
       {
         id: "g1",
+        img: "images/g1.webp",
         titulo: "La Guerra Fría: un mundo en dos",
         min: 5,
         texto: [
@@ -375,6 +397,7 @@ window.CURSOS = [
       },
       {
         id: "g2",
+        img: "images/g2.webp",
         titulo: "El petróleo como arma",
         min: 5,
         texto: [
@@ -394,6 +417,7 @@ window.CURSOS = [
       },
       {
         id: "g3",
+        img: "images/g3.webp",
         titulo: "China: cuarenta años de crecimiento",
         min: 5,
         texto: [
@@ -413,6 +437,7 @@ window.CURSOS = [
       },
       {
         id: "g4",
+        img: "images/g4.webp",
         titulo: "El mapa que se está redibujando",
         min: 5,
         texto: [

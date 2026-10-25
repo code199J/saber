@@ -1,6 +1,6 @@
-/* Service worker mínimo: cachea el shell para jugar sin conexión. */
+/* Service worker: cachea el shell y las imágenes para usar la app sin conexión. */
 
-const CACHE = "saber-v8";
+const CACHE = "saber-v10";
 const ARCHIVOS = [
   "./",
   "./index.html",
@@ -9,13 +9,23 @@ const ARCHIVOS = [
   "./js/cursos.js",
   "./js/questions.js",
   "./manifest.webmanifest",
+  "./credits.json",
   "./icons/icon-192.png",
   "./icons/icon-512.png"
 ];
 
+// Las 20 imágenes de las lecciones (h1…g4). Se cachean aparte para que un
+// fallo puntual no impida instalar la app.
+const IMAGENES = ["h", "c", "f", "e", "g"].flatMap((letra) =>
+  [1, 2, 3, 4].map((n) => "./images/" + letra + n + ".webp")
+);
+
 self.addEventListener("install", (evento) => {
   evento.waitUntil(
-    caches.open(CACHE).then((c) => c.addAll(ARCHIVOS)).then(() => self.skipWaiting())
+    caches.open(CACHE)
+      .then((c) => c.addAll(ARCHIVOS)
+        .then(() => Promise.allSettled(IMAGENES.map((ruta) => c.add(ruta)))))
+      .then(() => self.skipWaiting())
   );
 });
 

@@ -133,11 +133,18 @@ function registrarActividad() {
 
 /* ── Vistas ─────────────────────────────────────────────────── */
 
-const VISTAS = ["inicio", "curso", "leccion", "juego", "resultado"];
+const VISTAS = ["inicio", "curso", "leccion", "juego", "resultado", "creditos"];
 
 function mostrar(vista) {
   VISTAS.forEach((v) => $("#vista-" + v).classList.toggle("oculto", v !== vista));
   window.scrollTo(0, 0);
+}
+
+function ponerImagen(selector, ruta, alt) {
+  const img = $(selector);
+  if (!img || !ruta) return;
+  if (img.getAttribute("src") !== ruta) img.src = ruta;
+  img.alt = alt || "";
 }
 
 /* ── Inicio ─────────────────────────────────────────────────── */
@@ -157,6 +164,7 @@ function pintarInicio() {
     $("#continuar-tag").textContent = "Continuar";
     $("#continuar-titulo").textContent = pend.leccion.titulo;
     $("#continuar-sub").textContent = pend.curso.tema + " · " + pend.leccion.min + " min de lectura";
+    ponerImagen("#continuar-img", pend.leccion.img, pend.leccion.titulo);
     const pct = (aprobadas(pend.curso) / pend.curso.lecciones.length) * 100;
     $("#continuar-barra").style.width = pct + "%";
     $("#btn-continuar").onclick = () => abrirLeccion(pend.curso.id, pend.leccion.id);
@@ -164,6 +172,7 @@ function pintarInicio() {
     $("#continuar-tag").textContent = "Biblioteca completa";
     $("#continuar-titulo").textContent = "Repasar un curso";
     $("#continuar-sub").textContent = "Ya aprobaste todos los tests. Vuelve cuando quieras.";
+    ponerImagen("#continuar-img", window.CURSOS[0].lecciones[0].img, "");
     $("#continuar-barra").style.width = "100%";
     $("#btn-continuar").onclick = () => abrirCurso(window.CURSOS[0].id);
   }
@@ -178,11 +187,14 @@ function pintarInicio() {
     b.type = "button";
     b.className = "curso";
     b.innerHTML =
-      '<span class="curso-tema">' + c.tema + "</span>" +
-      '<span class="curso-nombre">' + c.titulo + "</span>" +
-      '<span class="curso-sub">' + c.sub + "</span>" +
-      '<span class="barra-mini"><span style="width:' + pct + '%"></span></span>' +
-      '<span class="curso-pie">' + ok + " de " + c.lecciones.length + " tests aprobados</span>";
+      '<span class="curso-media"><img src="' + (c.portada || c.lecciones[0].img) + '" alt="" width="720" height="405" loading="lazy" decoding="async"></span>' +
+      '<span class="curso-cuerpo">' +
+        '<span class="curso-tema">' + c.tema + "</span>" +
+        '<span class="curso-nombre">' + c.titulo + "</span>" +
+        '<span class="curso-sub">' + c.sub + "</span>" +
+        '<span class="barra-mini"><span style="width:' + pct + '%"></span></span>' +
+        '<span class="curso-pie">' + ok + " de " + c.lecciones.length + " tests aprobados</span>" +
+      "</span>";
     b.addEventListener("click", () => abrirCurso(c.id));
     cont.appendChild(b);
   });
@@ -223,6 +235,7 @@ function abrirCurso(cursoId) {
   $("#curso-tema").textContent = c.tema;
   $("#curso-titulo").textContent = c.titulo;
   $("#curso-desc").textContent = c.desc;
+  ponerImagen("#curso-img", c.portada || c.lecciones[0].img, c.titulo);
 
   const ok = aprobadas(c);
   $("#curso-progreso-txt").textContent = ok + " / " + c.lecciones.length;
@@ -230,7 +243,7 @@ function abrirCurso(cursoId) {
 
   const cont = $("#lista-lecciones");
   cont.innerHTML = "";
-  c.lecciones.forEach((l, i) => {
+  c.lecciones.forEach((l) => {
     const visto = !!datos.vistas[l.id];
     const nota = datos.tests[l.id];
     const hecho = nota >= 2;
@@ -238,7 +251,7 @@ function abrirCurso(cursoId) {
     b.type = "button";
     b.className = "leccion-item" + (hecho ? " hecha" : visto ? " vista" : "");
     b.innerHTML =
-      '<span class="num">' + (i + 1) + "</span>" +
+      '<img class="miniatura" src="' + l.img + '" alt="" width="62" height="62" loading="lazy" decoding="async">' +
       '<span class="cuerpo"><span class="titulo">' + l.titulo + "</span>" +
       '<span class="meta">' + l.min + " min · " + l.quiz.length + " preguntas" +
       (hecho ? " · aprobada" : visto ? " · leída" : "") + "</span></span>" +
@@ -265,6 +278,7 @@ function abrirLeccion(cursoId, lecId) {
   $("#leccion-tema").textContent = c.tema + " · " + c.titulo;
   $("#leccion-titulo").textContent = l.titulo;
   $("#leccion-meta").textContent = "Unos " + l.min + " minutos de lectura";
+  ponerImagen("#leccion-img", l.img, l.titulo);
 
   const art = $("#leccion-texto");
   art.innerHTML = "";
@@ -282,6 +296,60 @@ function abrirLeccion(cursoId, lecId) {
   }
 
   mostrar("leccion");
+}
+
+/* ── Créditos de las imágenes ───────────────────────────────── */
+
+let creditosCargados = null;
+
+async function abrirCreditos() {
+  mostrar("creditos");
+  if (creditosCargados) { pintarCreditos(creditosCargados); return; }
+  try {
+    const r = await fetch("credits.json");
+    creditosCargados = await r.json();
+  } catch (e) {
+    creditosCargados = null;
+  }
+  pintarCreditos(creditosCargados);
+}
+
+function pintarCreditos(lista) {
+  const cont = $("#lista-creditos");
+  cont.innerHTML = "";
+  if (!lista) {
+    cont.innerHTML = '<p class="curso-desc">No se pudieron cargar los créditos. Abre la app con conexión al menos una vez.</p>';
+    return;
+  }
+
+  const porId = {};
+  window.CURSOS.forEach((c) => c.lecciones.forEach((l) => { porId[l.id] = l; }));
+
+  Object.keys(lista).forEach((id) => {
+    const cr = lista[id];
+    const lec = porId[id];
+    const div = document.createElement("div");
+    div.className = "credito";
+
+    const a = document.createElement("a");
+    a.href = cr.pagina || "#";
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    a.textContent = lec ? lec.titulo : String(cr.titulo || "").replace(/^File:/, "");
+    div.appendChild(a);
+
+    const autor = document.createElement("span");
+    autor.className = "autor";
+    autor.textContent = (cr.autor || "Autor desconocido") + " · " + String(cr.titulo || "").replace(/^File:/, "");
+    div.appendChild(autor);
+
+    const lic = document.createElement("span");
+    lic.className = "lic";
+    lic.textContent = cr.licencia || "";
+    div.appendChild(lic);
+
+    cont.appendChild(div);
+  });
 }
 
 /* ── Preparación de preguntas ───────────────────────────────── */
@@ -564,9 +632,10 @@ $("#btn-continuar").addEventListener("click", () => {
 $("#btn-diario").addEventListener("click", () => empezarReto(false));
 $("#btn-siguiente").addEventListener("click", siguiente);
 $("#btn-inicio").addEventListener("click", () => { pintarInicio(); mostrar("inicio"); });
+$("#btn-creditos").addEventListener("click", abrirCreditos);
+$("#btn-creditos-salir").addEventListener("click", () => { pintarInicio(); mostrar("inicio"); });
 
-$("#btn-curso-salir").addEventListener("click", () => { pintarInicio(); mostrar("inicio"); });
-$("#btn-leccion-salir").addEventListener("click", () => abrirCurso(cursoAbierto));
+$("#btn-curso-salir").addEventListener("click", () => { pintarInicio(); mostrar("inicio"); });$("#btn-leccion-salir").addEventListener("click", () => abrirCurso(cursoAbierto));
 $("#btn-volver-curso").addEventListener("click", () => abrirCurso(cursoAbierto));
 $("#btn-test").addEventListener("click", () => empezarTest(cursoAbierto, leccionAbierta));
 
