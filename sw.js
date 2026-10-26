@@ -1,6 +1,6 @@
 /* Service worker: cachea el shell y las imágenes para usar la app sin conexión. */
 
-const CACHE = "saber-v11";
+const CACHE = "saber-v12";
 const ARCHIVOS = [
   "./",
   "./index.html",

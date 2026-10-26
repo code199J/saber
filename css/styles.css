@@ -632,6 +632,13 @@ body {
 .fallo .pregunta-fallo { color: #CBD6D4; }
 .fallo .respuesta { color: var(--bien); margin-top: 4px; font-size: 13.5px; }
 
+.cierre {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--tenue);
+  margin: 0 0 4px;
+}
+
 .acciones { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
 
 .primario, .secundario {

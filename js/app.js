@@ -20,6 +20,7 @@ const POR_DEFECTO = {
   mejorRacha: 0,
   ultimoDia: null,
   diario: null,          // { dia, aciertos, total }
+  minutos: null,         // { dia, total }
   vistas: {},            // { idLeccion: true }
   tests: {},             // { idLeccion: aciertos }
   partidas: 0,
@@ -34,6 +35,15 @@ function cargarDatos() {
   const d = Object.assign({}, POR_DEFECTO, guardado);
   if (d.ultimoDia && d.ultimoDia !== hoy() && d.ultimoDia !== ayer()) d.racha = 0;
   return d;
+}
+
+function minutosHoy() {
+  return datos.minutos && datos.minutos.dia === hoy() ? datos.minutos.total : 0;
+}
+
+function sumarMinutos(n) {
+  if (!datos.minutos || datos.minutos.dia !== hoy()) datos.minutos = { dia: hoy(), total: 0 };
+  datos.minutos.total += n;
 }
 
 function guardarDatos() {
@@ -216,7 +226,7 @@ function pintarInicio() {
   $("#stats").innerHTML =
     bloqueStat(leidas + "/" + totalLecciones(), "lecciones") +
     bloqueStat(precision + "%", "aciertos") +
-    bloqueStat(datos.mejorRacha, "mejor racha");
+    bloqueStat(minutosHoy() + " min", "hoy");
 
   $("#btn-tiempo").textContent = datos.tiempo ? "Tiempo: " + SEGUNDOS + " s" : "Tiempo: libre";
 }
@@ -510,6 +520,9 @@ function terminar() {
 
   partida.xpGanada += extra;
   datos.xp += partida.xpGanada;
+
+  const lec = partida.modo === "leccion" ? leccionPorId(partida.cursoId, partida.leccionId) : null;
+  sumarMinutos(lec && lec.min ? lec.min : 2);
   guardarDatos();
 
   $("#resultado-etiqueta").textContent = partida.modo === "leccion"
@@ -532,6 +545,11 @@ function terminar() {
   $("#veredicto-final").textContent = frase;
 
   $("#xp-ganada").textContent = partida.xpGanada > 0 ? "+" + partida.xpGanada + " XP" : "";
+
+  const mins = minutosHoy();
+  $("#cierre").textContent = mins >= 15
+    ? "Llevas " + mins + " min hoy. Más que suficiente: ciérralo y mañana seguimos."
+    : "Sesión completa · hoy llevas " + mins + " min. Mañana hay otra lección.";
 
   // Fallos
   const cont = $("#fallos");
