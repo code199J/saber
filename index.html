@@ -19,45 +19,48 @@
 
   <!-- ── Inicio ───────────────────────────────────────────── -->
   <section id="vista-inicio" class="vista">
-    <header class="marca">
-      <h1>Saber<span class="punto">.</span></h1>
-      <p class="lema">Diez minutos al día. Una lección, un test, y a otra cosa.</p>
-    </header>
+    <div class="ahora">
+      <header class="marca">
+        <h1>Saber<span class="punto">.</span></h1>
+        <p class="lema">Diez minutos al día. Una lección, un test, y a otra cosa.</p>
+      </header>
 
-    <div class="fila-datos">
-      <div class="dato">
-        <span class="dato-num" id="racha-num">0</span>
-        <span class="dato-txt" id="racha-txt">días seguidos</span>
+      <div class="fila-datos">
+        <div class="dato">
+          <span class="dato-num" id="racha-num">0</span>
+          <span class="dato-txt" id="racha-txt">días seguidos</span>
+        </div>
+        <div class="dato">
+          <span class="dato-num" id="nivel-num">1</span>
+          <span class="dato-txt" id="nivel-txt">nivel · 0 XP</span>
+        </div>
       </div>
-      <div class="dato">
-        <span class="dato-num" id="nivel-num">1</span>
-        <span class="dato-txt" id="nivel-txt">nivel · 0 XP</span>
-      </div>
+
+      <button class="continuar" id="btn-continuar">
+        <span class="continuar-media">
+          <img id="continuar-img" alt="" width="720" height="405" loading="lazy" decoding="async">
+        </span>
+        <span class="continuar-cuerpo">
+          <span class="continuar-tag" id="continuar-tag">Continuar</span>
+          <span class="continuar-titulo" id="continuar-titulo">Cargando…</span>
+          <span class="continuar-sub" id="continuar-sub"></span>
+          <span class="barra-mini"><span id="continuar-barra"></span></span>
+        </span>
+      </button>
+
+      <h2 class="sec">Reto del día</h2>
+      <button class="diario" id="btn-diario">
+        <span class="diario-titulo" id="diario-titulo">10 preguntas sueltas</span>
+        <span class="diario-sub" id="diario-sub">Sin repetir, un tema distinto cada día</span>
+      </button>
+
+      <div class="stats" id="stats"></div>
     </div>
 
-    <button class="continuar" id="btn-continuar">
-      <span class="continuar-media">
-        <img id="continuar-img" alt="" width="720" height="405" loading="lazy" decoding="async">
-      </span>
-      <span class="continuar-cuerpo">
-        <span class="continuar-tag" id="continuar-tag">Continuar</span>
-        <span class="continuar-titulo" id="continuar-titulo">Cargando…</span>
-        <span class="continuar-sub" id="continuar-sub"></span>
-        <span class="barra-mini"><span id="continuar-barra"></span></span>
-      </span>
-    </button>
-
-    <h2 class="sec">Biblioteca</h2>
-    <div class="cursos" id="cursos"></div>
-
-    <h2 class="sec">Reto del día</h2>
-    <button class="diario" id="btn-diario">
-      <span class="diario-tag" id="diario-tag">Preguntas diarias</span>
-      <span class="diario-titulo" id="diario-titulo">10 preguntas sueltas</span>
-      <span class="diario-sub" id="diario-sub">Sin repetir, un tema distinto cada día</span>
-    </button>
-
-    <div class="stats" id="stats"></div>
+    <div class="biblioteca">
+      <h2 class="sec">Biblioteca</h2>
+      <div class="cursos" id="cursos"></div>
+    </div>
 
     <footer class="pie">
       <button class="enlace" id="btn-tiempo">Tiempo: 25 s</button>

@@ -7,7 +7,7 @@
   --tinta-alta: #10242A;
   --tinta-baja: #0E1E23;
   --borde:      #1E3A41;
-  --texto:      #F2EDE3;
+  --texto:      #EDEAE3;
   --tenue:      #8CA6A9;
   --ambar:      #E4A33C;
   --ambar-alto: #F0B75A;
@@ -32,40 +32,52 @@ html, body {
 
 body {
   min-height: 100dvh;
-  background-image: radial-gradient(120% 90% at 50% -20%, #143038 0%, var(--tinta) 55%);
-  background-attachment: fixed;
+  background: var(--tinta);
 }
+
+button, input, select, textarea { font-family: inherit; }
 
 #app {
   width: 100%;
-  max-width: 560px;
+  max-width: 1080px;
   margin: 0 auto;
   padding: max(20px, env(safe-area-inset-top)) 20px max(28px, env(safe-area-inset-bottom));
 }
+
+#vista-curso, #vista-leccion, #vista-juego, #vista-resultado {
+  width: 100%;
+  max-width: 620px;
+  margin-inline: auto;
+}
+
+#vista-inicio { gap: 28px; }
+
+.ahora, .biblioteca { display: flex; flex-direction: column; gap: 20px; }
+.biblioteca { gap: 14px; }
 
 .vista { display: flex; flex-direction: column; gap: 18px; }
 .oculto { display: none !important; }
 
 /* ── Cabecera ─────────────────────────────────────────────── */
-.marca { margin: 8px 0 4px; }
+.marca { margin: 4px 0 0; }
 
 .marca h1 {
   font-family: var(--serif);
-  font-size: clamp(44px, 13vw, 60px);
-  line-height: 0.95;
+  font-size: clamp(26px, 6vw, 32px);
+  line-height: 1.05;
   font-weight: 400;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.015em;
   margin: 0;
 }
 
 .punto { color: var(--ambar); }
 
 .lema {
-  margin: 10px 0 0;
+  margin: 8px 0 0;
   color: var(--tenue);
   font-size: 15px;
-  line-height: 1.45;
-  max-width: 34ch;
+  line-height: 1.5;
+  max-width: 38ch;
 }
 
 /* ── Datos de cabecera (racha y nivel) ────────────────────── */
@@ -79,7 +91,7 @@ body {
   display: flex;
   align-items: baseline;
   gap: 8px;
-  padding: 12px 16px;
+  padding: 12px 14px;
   border: 1px solid var(--borde);
   border-radius: var(--radio);
   background: var(--tinta-baja);
@@ -87,13 +99,13 @@ body {
 
 .dato-num {
   font-family: var(--serif);
-  font-size: 28px;
+  font-size: 24px;
   line-height: 1;
   color: var(--ambar);
   font-variant-numeric: tabular-nums;
 }
 
-.dato-txt { color: var(--tenue); font-size: 12px; letter-spacing: 0.02em; }
+.dato-txt { color: var(--tenue); font-size: 12.5px; }
 
 /* ── Tarjeta "Continuar" ──────────────────────────────────── */
 .continuar {
@@ -106,11 +118,11 @@ body {
   overflow: hidden;
   border: 1px solid #2B4C55;
   border-radius: var(--radio);
-  background: linear-gradient(160deg, #17383F 0%, #102A31 100%);
+  background: #14333B;
   color: var(--texto);
   text-align: left;
   cursor: pointer;
-  transition: border-color 0.12s ease;
+  transition: border-color 0.12s ease, background 0.12s ease;
 }
 
 .continuar-media { display: block; }
@@ -128,19 +140,18 @@ body {
 .continuar:active { transform: scale(0.995); }
 
 .continuar-tag {
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-size: 12.5px;
+  font-weight: 500;
   color: var(--ambar);
 }
 
 .continuar-titulo {
   font-family: var(--serif);
-  font-size: 23px;
-  line-height: 1.22;
+  font-size: 24px;
+  line-height: 1.2;
 }
 
-.continuar-sub { font-size: 13px; color: var(--tenue); }
+.continuar-sub { font-size: 13.5px; color: var(--tenue); }
 
 .barra-mini {
   display: block;
@@ -176,6 +187,7 @@ body {
   text-align: left;
   cursor: pointer;
   transition: border-color 0.12s ease, background 0.12s ease;
+  height: 100%;
 }
 
 .curso-media { display: block; }
@@ -184,17 +196,17 @@ body {
 .curso-cuerpo {
   display: flex;
   flex-direction: column;
+  flex: 1;
   gap: 3px;
-  padding: 14px 16px 16px;
+  padding: 15px 16px 16px;
 }
 
 .curso:hover { border-color: #3A6470; background: #133038; }
 .curso:active { transform: scale(0.995); }
 
 .curso-tema {
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  font-size: 12.5px;
+  font-weight: 500;
   color: var(--ambar);
 }
 
@@ -204,8 +216,8 @@ body {
   line-height: 1.25;
 }
 
-.curso-sub { font-size: 12.5px; color: var(--tenue); }
-.curso-pie { font-size: 11.5px; color: var(--tenue); margin-top: 4px; font-variant-numeric: tabular-nums; }
+.curso-sub { font-size: 13px; color: var(--tenue); }
+.curso-pie { font-size: 12.5px; color: var(--tenue); margin-top: auto; padding-top: 10px; font-variant-numeric: tabular-nums; }
 
 /* ── Vista de curso ───────────────────────────────────────── */
 .curso-titulo {
@@ -256,7 +268,7 @@ body {
 
 .leccion-item .cuerpo { display: flex; flex-direction: column; gap: 2px; flex: 1; }
 .leccion-item .titulo { font-size: 15px; line-height: 1.3; }
-.leccion-item .meta { font-size: 11.5px; color: var(--tenue); }
+.leccion-item .meta { font-size: 12.5px; color: var(--tenue); }
 .leccion-item .marca { color: var(--tenue); font-size: 16px; }
 .leccion-item.hecha .marca { color: var(--bien); }
 
@@ -282,7 +294,7 @@ body {
   margin: 0;
 }
 
-.leccion-meta { margin: 0; color: var(--tenue); font-size: 12.5px; letter-spacing: 0.03em; }
+.leccion-meta { margin: 0; color: var(--tenue); font-size: 13px; }
 
 .lectura { display: flex; flex-direction: column; gap: 16px; }
 
@@ -329,7 +341,7 @@ body {
   padding: 20px;
   border: 1px solid #2B4C55;
   border-radius: var(--radio);
-  background: linear-gradient(160deg, #17383F 0%, #102A31 100%);
+  background: #14333B;
   color: var(--texto);
   text-align: left;
   cursor: pointer;
@@ -339,29 +351,20 @@ body {
 .diario:active { transform: scale(0.99); }
 .diario:hover { border-color: var(--ambar); }
 
-.diario-tag {
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ambar);
-}
-
 .diario-titulo {
   font-family: var(--serif);
-  font-size: 24px;
-  line-height: 1.2;
+  font-size: 22px;
+  line-height: 1.22;
 }
 
 .diario-sub { font-size: 13px; color: var(--tenue); }
 
 /* ── Temas ────────────────────────────────────────────────── */
 .sec {
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-size: 13px;
   color: var(--tenue);
   font-weight: 500;
-  margin: 10px 0 0;
+  margin: 4px 0 0;
 }
 
 .temas {
@@ -388,7 +391,7 @@ body {
 
 .tema:hover { border-color: #3A6470; background: #133038; }
 .tema:active { transform: scale(0.99); }
-.tema small { color: var(--tenue); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+.tema small { color: var(--tenue); font-size: 12.5px; }
 
 /* ── Estadísticas ─────────────────────────────────────────── */
 .stats {
@@ -413,7 +416,7 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
-.stat span { font-size: 11px; color: var(--tenue); letter-spacing: 0.06em; text-transform: uppercase; }
+.stat span { font-size: 12.5px; color: var(--tenue); }
 
 /* ── Pie ──────────────────────────────────────────────────── */
 .pie {
@@ -430,9 +433,10 @@ body {
   background: none;
   border: 0;
   color: var(--tenue);
-  font-size: 12px;
+  font-size: 13px;
   font-family: var(--sans);
-  padding: 8px 4px;
+  min-height: 44px;
+  padding: 12px 8px;
   cursor: pointer;
   text-decoration: underline;
   text-decoration-color: #2E4C55;
@@ -451,8 +455,8 @@ body {
 }
 
 .icono {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   display: grid;
   place-items: center;
   border: 1px solid var(--borde);
@@ -464,9 +468,8 @@ body {
 }
 
 .progreso-txt, .puntos {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--tenue);
-  letter-spacing: 0.06em;
   font-variant-numeric: tabular-nums;
 }
 
@@ -501,9 +504,7 @@ body {
 .tiempo span.urgente { background: var(--mal); opacity: 1; }
 
 .etiqueta {
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  font-size: 12.5px;
   color: var(--ambar);
   margin: 14px 0 0;
 }
@@ -549,7 +550,7 @@ body {
   place-items: center;
   border-radius: 6px;
   border: 1px solid #2B4C55;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--tenue);
   font-variant-numeric: tabular-nums;
 }
@@ -581,9 +582,8 @@ body {
 
 .veredicto {
   margin: 0;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size: 13.5px;
+  font-weight: 600;
 }
 
 .veredicto.bien { color: var(--bien); }
@@ -678,4 +678,34 @@ body {
 @media (min-width: 620px) {
   #app { padding-top: 40px; }
   .temas { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 620px) and (max-width: 899px) {
+  #app { max-width: 600px; }
+}
+
+@media (min-width: 900px) {
+  #app { padding: 48px 40px 40px; }
+
+  #vista-inicio {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1fr);
+    gap: 64px;
+    align-items: start;
+  }
+
+  .ahora { position: sticky; top: 48px; }
+
+  .cursos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .curso-nombre { font-size: 18px; }
+  .curso-media img { aspect-ratio: 16 / 10; }
+
+  .stats { margin-top: 2px; }
+
+  .pie { grid-column: 1 / -1; margin-top: 8px; }
 }

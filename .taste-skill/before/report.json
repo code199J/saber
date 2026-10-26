@@ -1,0 +1,1856 @@
+{
+ "url": "http://localhost:8099",
+ "at": "2026-10-26T15:45:33.983Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 5,
+   "filled": [
+    0.26,
+    0.33,
+    0.33,
+    0.26,
+    0.25
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 3621,
+     "screens": 4,
+     "words": 161,
+     "img": 9,
+     "video": 0,
+     "canvas": 0,
+     "svg": 0,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 7,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "h1.webp",
+      "h3.webp",
+      "t1.webp",
+      "c1.webp",
+      "f3.webp",
+      "e2.webp",
+      "g4.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Saber.",
+     "words": 1,
+     "chars": 6,
+     "lines": 1,
+     "size": 60,
+     "vw": 4.2,
+     "font": "Iowan Old Style",
+     "weight": 400,
+     "tracking": -0.02,
+     "leading": 0.95,
+     "top": 48,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "Saber.",
+     "words": 1,
+     "lines": 1,
+     "size": 60,
+     "font": "Iowan Old Style"
+    },
+    "headings": [
+     {
+      "text": "Saber.",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 60,
+      "vw": 4.2,
+      "font": "Iowan Old Style",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.36,
+      "top": 48,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "0",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 28,
+      "vw": 1.9,
+      "font": "Iowan Old Style",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.01,
+      "top": 194,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "1",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 28,
+      "vw": 1.9,
+      "font": "Iowan Old Style",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.01,
+      "top": 194,
+      "tag": "span",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 3,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Arial",
+       "share": 0.55,
+       "mono": false
+      },
+      {
+       "family": "Iowan Old Style",
+       "share": 0.26,
+       "mono": false
+      },
+      {
+       "family": "system-ui",
+       "share": 0.19,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      10,
+      11,
+      12,
+      13,
+      15,
+      16,
+      20,
+      22,
+      23,
+      24,
+      28,
+      60
+     ],
+     "sizeCount": 12,
+     "notLoaded": [],
+     "body": null,
+     "measureChars": null,
+     "max": {
+      "size": 60,
+      "vw": 4.2,
+      "font": "Iowan Old Style",
+      "text": "Saber"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 5,
+     "microLabelShare": 0.053,
+     "microSamples": [
+      "Biblioteca",
+      "Reto del día",
+      "lecciones",
+      "aciertos",
+      "hoy"
+     ],
+     "upperShare": 0.15,
+     "centerShare": 0.03,
+     "smallText": 17
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#0b171b",
+     "bodyBgHsl": {
+      "h": 195,
+      "s": 0.42,
+      "l": 0.07
+     },
+     "dark": true,
+     "sectionBgs": [],
+     "textColors": [
+      {
+       "color": "#8ca6a9",
+       "share": 0.65
+      },
+      {
+       "color": "#f2ede3",
+       "share": 0.25
+      },
+      {
+       "color": "#e4a33c",
+       "share": 0.1
+      },
+      {
+       "color": "#2e4c55",
+       "share": 0
+      }
+     ],
+     "button": null,
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 0,
+     "inHero": 0,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": []
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 2,
+     "scrims": 0,
+     "gradientSamples": [
+      "button#btn-continuar.continuar → linear-gradient(160deg, rgb(23, 56, 63) 0%, rgb(16, 42, 49) 100%)",
+      "button#btn-diario.diario → linear-gradient(160deg, rgb(23, 56, 63) 0%, rgb(16, 42, 49) 100%)"
+     ],
+     "gradientText": 0,
+     "hairlines": 1,
+     "hairlineSamples": [
+      "footer.pie 520px"
+     ],
+     "outlinedBoxes": 8,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 8,
+     "boxRadius": 14,
+     "squareMedia": 0,
+     "roundedMedia": 7,
+     "mediaRadius": 14,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 6,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 725
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.12
+     }
+    ],
+    "nav": {
+     "links": 0,
+     "fixed": false,
+     "height": 111,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 3621,
+    "margins": {
+     "left": 460,
+     "right": 460
+    },
+    "sections": [],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Saber.",
+      "size": 60,
+      "top": 48,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 460,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 1,
+    "bodySize": 15,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0.25,
+    "voidBox": {
+     "x": 0,
+     "y": 120,
+     "w": 420,
+     "h": 780
+    }
+   },
+   "app": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "dark": true,
+    "ground": "#0b171b",
+    "sidebar": null,
+    "topbar": null,
+    "canvas": {
+     "left": 460,
+     "right": 460
+    },
+    "hero": {
+     "text": "Saber.",
+     "words": 1,
+     "chars": 6,
+     "lines": 1,
+     "size": 60,
+     "vw": 4.2,
+     "font": "Iowan Old Style",
+     "weight": 400,
+     "tracking": -0.02,
+     "leading": 0.95,
+     "top": 48,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 11,
+     "firstScreen": 2,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 11,
+     "radii": [
+      [
+       14,
+       8
+      ],
+      [
+       0,
+       3
+      ]
+     ],
+     "heavyBorders": 2,
+     "borderSamples": [
+      "#2b4c55 on #0b171b (1.97:1)",
+      "#2b4c55 on #0b171b (1.97:1)"
+     ],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 2,
+     "tabularShare": 1,
+     "kpiMax": 22
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.37,
+     "tiny": 6,
+     "tinySamples": [
+      "Historia 10px",
+      "Tecnología 10px",
+      "Ciencia 10px",
+      "Filosofía 10px"
+     ],
+     "sizes": [
+      10,
+      11,
+      12,
+      13,
+      15,
+      20,
+      22,
+      23,
+      24,
+      29,
+      60
+     ]
+    },
+    "title": {
+     "text": "Saber.",
+     "size": 60,
+     "top": 48
+    },
+    "colourShare": 0.007
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 4,
+   "filled": [
+    0.46,
+    0.67,
+    0.62,
+    0.51
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 3621,
+     "screens": 3.5,
+     "words": 161,
+     "img": 9,
+     "video": 0,
+     "canvas": 0,
+     "svg": 0,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 7,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "h1.webp",
+      "h3.webp",
+      "t1.webp",
+      "c1.webp",
+      "f3.webp",
+      "e2.webp",
+      "g4.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Saber.",
+     "words": 1,
+     "chars": 6,
+     "lines": 1,
+     "size": 60,
+     "vw": 7.8,
+     "font": "Iowan Old Style",
+     "weight": 400,
+     "tracking": -0.02,
+     "leading": 0.95,
+     "top": 48,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "Saber.",
+     "words": 1,
+     "lines": 1,
+     "size": 60,
+     "font": "Iowan Old Style"
+    },
+    "headings": [
+     {
+      "text": "Saber.",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 60,
+      "vw": 7.8,
+      "font": "Iowan Old Style",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.68,
+      "top": 48,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "0",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 28,
+      "vw": 3.6,
+      "font": "Iowan Old Style",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.02,
+      "top": 194,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "1",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 28,
+      "vw": 3.6,
+      "font": "Iowan Old Style",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.02,
+      "top": 194,
+      "tag": "span",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 3,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Arial",
+       "share": 0.55,
+       "mono": false
+      },
+      {
+       "family": "Iowan Old Style",
+       "share": 0.26,
+       "mono": false
+      },
+      {
+       "family": "system-ui",
+       "share": 0.19,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      10,
+      11,
+      12,
+      13,
+      15,
+      16,
+      20,
+      22,
+      23,
+      24,
+      28,
+      60
+     ],
+     "sizeCount": 12,
+     "notLoaded": [],
+     "body": null,
+     "measureChars": null,
+     "max": {
+      "size": 60,
+      "vw": 7.8,
+      "font": "Iowan Old Style",
+      "text": "Saber"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 5,
+     "microLabelShare": 0.053,
+     "microSamples": [
+      "Biblioteca",
+      "Reto del día",
+      "lecciones",
+      "aciertos",
+      "hoy"
+     ],
+     "upperShare": 0.15,
+     "centerShare": 0.03,
+     "smallText": 17
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#0b171b",
+     "bodyBgHsl": {
+      "h": 195,
+      "s": 0.42,
+      "l": 0.07
+     },
+     "dark": true,
+     "sectionBgs": [],
+     "textColors": [
+      {
+       "color": "#8ca6a9",
+       "share": 0.65
+      },
+      {
+       "color": "#f2ede3",
+       "share": 0.25
+      },
+      {
+       "color": "#e4a33c",
+       "share": 0.1
+      },
+      {
+       "color": "#2e4c55",
+       "share": 0
+      }
+     ],
+     "button": null,
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 0,
+     "inHero": 0,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": []
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 2,
+     "scrims": 0,
+     "gradientSamples": [
+      "button#btn-continuar.continuar → linear-gradient(160deg, rgb(23, 56, 63) 0%, rgb(16, 42, 49) 100%)",
+      "button#btn-diario.diario → linear-gradient(160deg, rgb(23, 56, 63) 0%, rgb(16, 42, 49) 100%)"
+     ],
+     "gradientText": 0,
+     "hairlines": 1,
+     "hairlineSamples": [
+      "footer.pie 520px"
+     ],
+     "outlinedBoxes": 8,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 8,
+     "boxRadius": 14,
+     "squareMedia": 0,
+     "roundedMedia": 7,
+     "mediaRadius": 14,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 6,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 725
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.19
+     },
+     {
+      "type": "img",
+      "ratio": 0.19
+     }
+    ],
+    "nav": {
+     "links": 0,
+     "fixed": false,
+     "height": 111,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 3621,
+    "margins": {
+     "left": 124,
+     "right": 124
+    },
+    "sections": [
+     {
+      "sel": "button#btn-continuar.continuar",
+      "tag": "button",
+      "top": 253,
+      "height": 411,
+      "words": 13,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "1789: el fin del Antiguo Régimen",
+       "size": 23,
+       "tag": "span"
+      },
+      "left": 124,
+      "right": 124,
+      "textLeft": 143,
+      "textRight": 316,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "button.curso",
+      "tag": "button",
+      "top": 725,
+      "height": 412,
+      "words": 16,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 124,
+      "right": 124,
+      "textLeft": 141,
+      "textRight": 473,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "button.curso",
+      "tag": "button",
+      "top": 1147,
+      "height": 412,
+      "words": 17,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 124,
+      "right": 124,
+      "textLeft": 141,
+      "textRight": 415,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "button.curso",
+      "tag": "button",
+      "top": 1570,
+      "height": 412,
+      "words": 16,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 124,
+      "right": 124,
+      "textLeft": 141,
+      "textRight": 417,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "button.curso",
+      "tag": "button",
+      "top": 1992,
+      "height": 412,
+      "words": 16,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 124,
+      "right": 124,
+      "textLeft": 141,
+      "textRight": 405,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "button.curso",
+      "tag": "button",
+      "top": 2414,
+      "height": 412,
+      "words": 15,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 124,
+      "right": 124,
+      "textLeft": 141,
+      "textRight": 436,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "button.curso",
+      "tag": "button",
+      "top": 2837,
+      "height": 412,
+      "words": 18,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 124,
+      "right": 124,
+      "textLeft": 141,
+      "textRight": 431,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Saber.",
+      "size": 60,
+      "top": 48,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 124,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 1,
+    "bodySize": 15,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "dark": true,
+    "ground": "#0b171b",
+    "sidebar": null,
+    "topbar": null,
+    "canvas": {
+     "left": 124,
+     "right": 124
+    },
+    "hero": {
+     "text": "Saber.",
+     "words": 1,
+     "chars": 6,
+     "lines": 1,
+     "size": 60,
+     "vw": 7.8,
+     "font": "Iowan Old Style",
+     "weight": 400,
+     "tracking": -0.02,
+     "leading": 0.95,
+     "top": 48,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 11,
+     "firstScreen": 2,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 11,
+     "radii": [
+      [
+       14,
+       8
+      ],
+      [
+       0,
+       3
+      ]
+     ],
+     "heavyBorders": 2,
+     "borderSamples": [
+      "#2b4c55 on #0b171b (1.97:1)",
+      "#2b4c55 on #0b171b (1.97:1)"
+     ],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 2,
+     "tabularShare": 1,
+     "kpiMax": 22
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.37,
+     "tiny": 6,
+     "tinySamples": [
+      "Historia 10px",
+      "Tecnología 10px",
+      "Ciencia 10px",
+      "Filosofía 10px"
+     ],
+     "sizes": [
+      10,
+      11,
+      12,
+      13,
+      15,
+      20,
+      22,
+      23,
+      24,
+      29,
+      60
+     ]
+    },
+    "title": {
+     "text": "Saber.",
+     "size": 60,
+     "top": 48
+    },
+    "colourShare": 0.018
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 4,
+   "filled": [
+    0.74,
+    0.92,
+    0.86,
+    0.63
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 2923,
+     "screens": 3.5,
+     "words": 161,
+     "img": 9,
+     "video": 0,
+     "canvas": 0,
+     "svg": 0,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 7,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "h1.webp",
+      "h3.webp",
+      "t1.webp",
+      "c1.webp",
+      "f3.webp",
+      "e2.webp",
+      "g4.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Saber.",
+     "words": 1,
+     "chars": 6,
+     "lines": 1,
+     "size": 51,
+     "vw": 13,
+     "font": "Iowan Old Style",
+     "weight": 400,
+     "tracking": -0.02,
+     "leading": 0.95,
+     "top": 28,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "Saber.",
+     "words": 1,
+     "lines": 1,
+     "size": 50.7,
+     "font": "Iowan Old Style"
+    },
+    "headings": [
+     {
+      "text": "Saber.",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 50.7,
+      "vw": 13,
+      "font": "Iowan Old Style",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 28,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "0",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Iowan Old Style",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.04,
+      "top": 165,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "1",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Iowan Old Style",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.04,
+      "top": 165,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "1789: el fin del Antiguo Régimen",
+      "words": 6,
+      "chars": 32,
+      "lines": 1,
+      "size": 23,
+      "vw": 5.9,
+      "font": "Iowan Old Style",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.22,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 454,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "10 preguntas sueltas",
+      "words": 3,
+      "chars": 20,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Iowan Old Style",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.5,
+      "top": 2651,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "0/24",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Iowan Old Style",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.21,
+      "top": 2761,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "0%",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Iowan Old Style",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.21,
+      "top": 2761,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "0 min",
+      "words": 2,
+      "chars": 5,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Iowan Old Style",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.21,
+      "top": 2761,
+      "tag": "b",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 8,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Arial",
+       "share": 0.55,
+       "mono": false
+      },
+      {
+       "family": "Iowan Old Style",
+       "share": 0.26,
+       "mono": false
+      },
+      {
+       "family": "system-ui",
+       "share": 0.19,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      10,
+      11,
+      12,
+      13,
+      15,
+      16,
+      20,
+      22,
+      23,
+      24,
+      28,
+      51
+     ],
+     "sizeCount": 12,
+     "notLoaded": [],
+     "body": null,
+     "measureChars": null,
+     "max": {
+      "size": 50.7,
+      "vw": 13,
+      "font": "Iowan Old Style",
+      "text": "Saber"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 5,
+     "microLabelShare": 0.053,
+     "microSamples": [
+      "Biblioteca",
+      "Reto del día",
+      "lecciones",
+      "aciertos",
+      "hoy"
+     ],
+     "upperShare": 0.15,
+     "centerShare": 0.03,
+     "smallText": 17
+    },
+    "eyebrows": [
+     {
+      "text": "Reto del día",
+      "above": "10 preguntas sueltas",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 11,
+      "top": 2579
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#0b171b",
+     "bodyBgHsl": {
+      "h": 195,
+      "s": 0.42,
+      "l": 0.07
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#10242a",
+       "top": 600,
+       "hsl": {
+        "h": 194,
+        "s": 0.45,
+        "l": 0.11
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#8ca6a9",
+       "share": 0.65
+      },
+      {
+       "color": "#f2ede3",
+       "share": 0.25
+      },
+      {
+       "color": "#e4a33c",
+       "share": 0.1
+      },
+      {
+       "color": "#2e4c55",
+       "share": 0
+      }
+     ],
+     "button": null,
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 0,
+     "inHero": 0,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": []
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 2,
+     "scrims": 0,
+     "gradientSamples": [
+      "button#btn-continuar.continuar → linear-gradient(160deg, rgb(23, 56, 63) 0%, rgb(16, 42, 49) 100%)",
+      "button#btn-diario.diario → linear-gradient(160deg, rgb(23, 56, 63) 0%, rgb(16, 42, 49) 100%)"
+     ],
+     "gradientText": 0,
+     "hairlines": 1,
+     "hairlineSamples": [
+      "footer.pie 350px"
+     ],
+     "outlinedBoxes": 8,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 8,
+     "boxRadius": 14,
+     "squareMedia": 0,
+     "roundedMedia": 7,
+     "mediaRadius": 14,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 6,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 600
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.21
+     },
+     {
+      "type": "img",
+      "ratio": 0.21
+     }
+    ],
+    "nav": {
+     "links": 0,
+     "fixed": false,
+     "height": 102,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 2923,
+    "margins": {
+     "left": 20,
+     "right": 20
+    },
+    "sections": [
+     {
+      "sel": "button#btn-continuar.continuar",
+      "tag": "button",
+      "top": 224,
+      "height": 316,
+      "words": 13,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "1789: el fin del Antiguo Régimen",
+       "size": 23,
+       "tag": "span"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 39,
+      "textRight": 42,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "button.curso",
+      "tag": "button",
+      "top": 600,
+      "height": 317,
+      "words": 16,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 20,
+      "right": 20,
+      "textLeft": 37,
+      "textRight": 199,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "button.curso",
+      "tag": "button",
+      "top": 927,
+      "height": 317,
+      "words": 17,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 20,
+      "right": 20,
+      "textLeft": 37,
+      "textRight": 141,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "button.curso",
+      "tag": "button",
+      "top": 1254,
+      "height": 317,
+      "words": 16,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 20,
+      "right": 20,
+      "textLeft": 37,
+      "textRight": 143,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "button.curso",
+      "tag": "button",
+      "top": 1581,
+      "height": 317,
+      "words": 16,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 20,
+      "right": 20,
+      "textLeft": 37,
+      "textRight": 131,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "button.curso",
+      "tag": "button",
+      "top": 1907,
+      "height": 317,
+      "words": 15,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 20,
+      "right": 20,
+      "textLeft": 37,
+      "textRight": 162,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "button.curso",
+      "tag": "button",
+      "top": 2234,
+      "height": 317,
+      "words": 18,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 20,
+      "right": 20,
+      "textLeft": 37,
+      "textRight": 157,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Saber.",
+      "size": 51,
+      "top": 28,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 20,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 1,
+    "bodySize": 15,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "dark": true,
+    "ground": "#0b171b",
+    "sidebar": null,
+    "topbar": null,
+    "canvas": {
+     "left": 20,
+     "right": 20
+    },
+    "hero": {
+     "text": "Saber.",
+     "words": 1,
+     "chars": 6,
+     "lines": 1,
+     "size": 51,
+     "vw": 13,
+     "font": "Iowan Old Style",
+     "weight": 400,
+     "tracking": -0.02,
+     "leading": 0.95,
+     "top": 28,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 8,
+     "firstScreen": 2,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 8,
+     "radii": [
+      [
+       14,
+       8
+      ]
+     ],
+     "heavyBorders": 2,
+     "borderSamples": [
+      "#2b4c55 on #0b171b (1.97:1)",
+      "#2b4c55 on #0b171b (1.97:1)"
+     ],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 2,
+     "tabularShare": 1,
+     "kpiMax": 22
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.37,
+     "tiny": 6,
+     "tinySamples": [
+      "Historia 10px",
+      "Tecnología 10px",
+      "Ciencia 10px",
+      "Filosofía 10px"
+     ],
+     "sizes": [
+      10,
+      11,
+      12,
+      13,
+      15,
+      20,
+      22,
+      23,
+      24,
+      25,
+      51
+     ]
+    },
+    "title": {
+     "text": "Saber.",
+     "size": 51,
+     "top": 28
+    },
+    "colourShare": 0.018
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "micro-label",
+   "width": 1440,
+   "message": "5 tiny uppercase letter-spaced labels (e.g. \"Biblioteca\", \"Reto del día\", \"lecciones\", \"aciertos\").",
+   "fix": "Use sentence-case text at a readable size, or delete the label.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "gradient",
+   "width": 1440,
+   "message": "2 gradient fill(s): button#btn-continuar.continuar → linear-gradient(160deg, rgb(23, 56, 63) 0%, rgb(16, 42, 49) 100%) | button#btn-diario.diario → linear-gradient(160deg, rgb(23, 56, 63) 0%, rgb(16, 42, 49) 100%)",
+   "fix": "Use a flat colour or a real image. The only gradient allowed by default is a neutral scrim over a photo for legibility.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (text #f2ede3).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "font-count",
+   "width": 1440,
+   "message": "3 typefaces in use (Arial, Iowan Old Style, system-ui).",
+   "fix": "Two at most.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "tiny-text",
+   "width": 1440,
+   "message": "6 text blocks under 11px: Historia 10px, Tecnología 10px, Ciencia 10px, Filosofía 10px.",
+   "fix": "Nothing below 11px; secondary text 12px, data 13–14px.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "below-fold",
+   "width": 1440,
+   "message": "Only 2 of 11 blocks start on the first 1440px screen.",
+   "fix": "Every block the brief names shows its header and first rows on the first desktop screen: size the headline block to its question, cap long lists with \"View all\", and put time-sensitive blocks before long tables."
+  },
+  {
+   "level": "WARN",
+   "id": "app-title-size",
+   "width": 1440,
+   "message": "The h1 is 60px (\"Saber.\").",
+   "fix": "An app screen is not a landing page: the title is 18-32px (20-24px on a phone).",
+   "alsoAt": [
+    768,
+    390
+   ]
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/home/jhonndrm/proyectos/personal/saber/.taste-skill/before/desktop-fold.jpg",
+   "pages": [
+    "/home/jhonndrm/proyectos/personal/saber/.taste-skill/before/desktop-page-01.jpg",
+    "/home/jhonndrm/proyectos/personal/saber/.taste-skill/before/desktop-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/home/jhonndrm/proyectos/personal/saber/.taste-skill/before/tablet-fold.jpg",
+   "pages": [
+    "/home/jhonndrm/proyectos/personal/saber/.taste-skill/before/tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/home/jhonndrm/proyectos/personal/saber/.taste-skill/before/mobile-fold.jpg",
+   "pages": [
+    "/home/jhonndrm/proyectos/personal/saber/.taste-skill/before/mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

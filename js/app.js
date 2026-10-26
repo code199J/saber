@@ -212,11 +212,9 @@ function pintarInicio() {
   // Reto diario
   const hecho = datos.diario && datos.diario.dia === hoy();
   if (hecho) {
-    $("#diario-tag").textContent = "Reto de hoy · hecho";
-    $("#diario-titulo").textContent = "Jugar una ronda libre";
-    $("#diario-sub").textContent = "Hoy acertaste " + datos.diario.aciertos + " de " + datos.diario.total;
+    $("#diario-titulo").textContent = "Ronda libre, si quieres";
+    $("#diario-sub").textContent = "Reto hecho · acertaste " + datos.diario.aciertos + " de " + datos.diario.total;
   } else {
-    $("#diario-tag").textContent = "Reto de hoy";
     $("#diario-titulo").textContent = PREGUNTAS_RETO + " preguntas sueltas";
     $("#diario-sub").textContent = "Suma XP una vez al día";
   }
@@ -554,9 +552,7 @@ function terminar() {
   // Fallos
   const cont = $("#fallos");
   cont.innerHTML = "";
-  if (partida.fallos.length === 0) {
-    cont.innerHTML = '<p class="veredicto-final">Sin fallos.</p>';
-  } else {
+  if (partida.fallos.length > 0) {
     partida.fallos.forEach((f) => {
       const div = document.createElement("div");
       div.className = "fallo";
@@ -572,7 +568,7 @@ function terminar() {
   const btnOtra = $("#btn-otra");
   if (partida.modo === "leccion") {
     const sig = siguienteEnCurso(partida.cursoId, partida.leccionId);
-    btnOtra.textContent = sig ? "Siguiente lección" : "Volver al curso";
+    btnOtra.textContent = sig ? "Seguir con otra lección" : "Volver al curso";
     btnOtra.onclick = () => {
       if (sig) abrirLeccion(partida.cursoId, sig.id);
       else abrirCurso(partida.cursoId);
