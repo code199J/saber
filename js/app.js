@@ -101,10 +101,13 @@ function leccionPorId(cursoId, lecId) {
 }
 
 function fechasHtml(t) {
+  const clave = " 1492 1789 1830 1914 1917 1929 1939 1945 1947 1949 1953 1960 1962 1969 1971 1973 1978 1983 1989 1991 1992 2001 2003 2007 2012 2015 2022 ";
   return t
     .replace(/(\b\d{1,2} de [a-za-záéíóúñ]+ de \d{4}\b)/gi, "<strong class='fecha'>$1</strong>")
-    .replace(/(?<![\d.,])(\b(?:1\d{3}|2\d{3})\b)(?![\d.,%])/g, "<strong class='fecha'>$1</strong>")
-    .replace(/(siglo\s+[a-za-záéíóúñ]+)/gi, "<strong class='fecha'>$1</strong>");
+    .replace(/(siglo\s+[a-za-záéíóúñ]+)/gi, "<strong class='fecha'>$1</strong>")
+    .replace(/(?<![\d.,])(\b(?:1\d{3}|2\d{3})\b)(?![\d.,%])/g, function(m, a) {
+      return clave.indexOf(" " + a + " ") >= 0 ? "<strong class='fecha'>" + a + "</strong>" : a;
+    });
 }
 
 function totalLecciones() {
