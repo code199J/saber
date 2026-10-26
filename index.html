@@ -94,6 +94,7 @@
     <header class="barra">
       <button class="icono" id="btn-leccion-salir" aria-label="Volver al curso">←</button>
       <span class="progreso-txt" id="leccion-progreso-txt"></span>
+      <button class="icono" id="btn-favorito" aria-label="Marcar como favorita">☆</button>
     </header>
 
     <div class="hero">
@@ -106,8 +107,15 @@
 
     <article class="lectura" id="leccion-texto"></article>
 
+    <div class="notas" id="notas-leccion" hidden>
+      <label for="textarea-notas">Tus notas</label>
+      <textarea id="textarea-notas" placeholder="Escribe lo que quieras recordar…"></textarea>
+      <button class="secundario" id="btn-guardar-notas">Guardar notas</button>
+    </div>
+
     <div class="acciones-leccion">
       <button class="primario" id="btn-test">Ponerme a prueba</button>
+      <button class="secundario" id="btn-ver-notas">Notas</button>
       <button class="secundario" id="btn-volver-curso">Volver al curso</button>
     </div>
   </section>

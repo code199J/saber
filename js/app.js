@@ -23,6 +23,8 @@ const POR_DEFECTO = {
   minutos: null,         // { dia, total }
   vistas: {},            // { idLeccion: true }
   tests: {},             // { idLeccion: aciertos }
+  notas: {},             // { idLeccion: texto }
+  favoritos: [],         // [ idLeccion ]
   partidas: 0,
   aciertos: 0,
   total: 0,
@@ -48,6 +50,31 @@ function sumarMinutos(n) {
 
 function guardarDatos() {
   try { localStorage.setItem(CLAVE, JSON.stringify(datos)); } catch (e) { /* modo privado */ }
+}
+
+/* ── Notas y favoritos ─────────────────────────────────────── */
+
+function estaFavorito(lecId) {
+  return datos.favoritos.includes(lecId);
+}
+
+function alternarFavorito(lecId) {
+  if (estaFavorito(lecId)) {
+    datos.favoritos = datos.favoritos.filter((id) => id !== lecId);
+  } else {
+    datos.favoritos.push(lecId);
+  }
+  guardarDatos();
+  return estaFavorito(lecId);
+}
+
+function leerNotas(lecId) {
+  return datos.notas[lecId] || "";
+}
+
+function guardarNotas(lecId, texto) {
+  datos.notas[lecId] = texto;
+  guardarDatos();
 }
 
 let datos = cargarDatos();
@@ -312,6 +339,38 @@ function abrirLeccion(cursoId, lecId) {
     registrarActividad();
     guardarDatos();
   }
+
+  // Favorito
+  const btnFav = $("#btn-favorito");
+  btnFav.textContent = estaFavorito(l.id) ? "★" : "☆";
+  btnFav.classList.toggle("activo", estaFavorito(l.id));
+  btnFav.onclick = () => {
+    const ahora = alternarFavorito(l.id);
+    btnFav.textContent = ahora ? "★" : "☆";
+    btnFav.classList.toggle("activo", ahora);
+  };
+
+  // Notas
+  const contNotas = $("#notas-leccion");
+  const txtNotas = $("#textarea-notas");
+  txtNotas.value = leerNotas(l.id);
+
+  const btnVer = $("#btn-ver-notas");
+  const btnGuardar = $("#btn-guardar-notas");
+  let notasAbiertas = false;
+
+  btnVer.onclick = () => {
+    notasAbiertas = !notasAbiertas;
+    contNotas.hidden = !notasAbiertas;
+    btnVer.textContent = notasAbiertas ? "Ocultar notas" : "Notas";
+    if (notasAbiertas) txtNotas.focus();
+  };
+
+  btnGuardar.onclick = () => {
+    guardarNotas(l.id, txtNotas.value);
+    btnGuardar.textContent = "Guardado";
+    setTimeout(() => { btnGuardar.textContent = "Guardar notas"; }, 900);
+  };
 
   mostrar("leccion");
 }
