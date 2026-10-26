@@ -100,6 +100,13 @@ function leccionPorId(cursoId, lecId) {
   return c ? c.lecciones.find((l) => l.id === lecId) : null;
 }
 
+function fechasHtml(t) {
+  return t
+    .replace(/(\b\d{1,2} de [a-za-záéíóúñ]+ de \d{4}\b)/gi, "<strong class='fecha'>$1</strong>")
+    .replace(/(?<![\d.,])(\b(?:1\d{3}|2\d{3})\b)(?![\d.,%])/g, "<strong class='fecha'>$1</strong>")
+    .replace(/(siglo\s+[a-za-záéíóúñ]+)/gi, "<strong class='fecha'>$1</strong>");
+}
+
 function totalLecciones() {
   return window.CURSOS.reduce((n, c) => n + c.lecciones.length, 0);
 }
@@ -292,7 +299,7 @@ function abrirLeccion(cursoId, lecId) {
   art.innerHTML = "";
   l.texto.forEach((p) => {
     const el = document.createElement("p");
-    el.textContent = p;
+    el.innerHTML = fechasHtml(p);
     art.appendChild(el);
   });
 
@@ -385,7 +392,7 @@ function pintarPregunta() {
   $("#progreso-txt").textContent = (partida.indice + 1) + " / " + n;
   $("#puntos-txt").textContent = partida.xpGanada ? "+" + partida.xpGanada + " XP" : "";
   $("#etiqueta-cat").textContent = partida.etiqueta;
-  $("#pregunta").textContent = p.q;
+  $("#pregunta").innerHTML = fechasHtml(p.q);
   $("#barra-progreso").style.width = (partida.indice / n * 100) + "%";
 
   const cont = $("#opciones");
@@ -396,7 +403,7 @@ function pintarPregunta() {
     const b = document.createElement("button");
     b.type = "button";
     b.className = "opcion";
-    b.innerHTML = '<span class="letra">' + letras[i] + "</span><span>" + texto + "</span>";
+    b.innerHTML = '<span class="letra">' + letras[i] + "</span><span>" + fechasHtml(texto) + "</span>";
     b.addEventListener("click", () => responder(i));
     cont.appendChild(b);
   });
@@ -473,9 +480,9 @@ function responder(elegida) {
   const veredicto = $("#veredicto");
   veredicto.textContent = acierto ? "Correcto" : (elegida < 0 ? "Se acabó el tiempo" : "Incorrecto");
   veredicto.className = "veredicto " + (acierto ? "bien" : "mal");
-  $("#explica").textContent = acierto
+  $("#explica").innerHTML = fechasHtml(acierto
     ? p.e
-    : "La respuesta era " + p.opciones[p.correcta] + ". " + p.e;
+    : "La respuesta era " + p.opciones[p.correcta] + ". " + p.e);
 
   $("#feedback").classList.remove("oculto");
   $("#btn-siguiente").textContent = (partida.indice + 1 === n) ? "Ver resultado" : "Siguiente";

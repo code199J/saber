@@ -124,8 +124,8 @@ window.BANCO = [
   { c:"geografia", q:"¿Cuál es la montaña más alta del mundo sobre el nivel del mar?", o:["K2","Everest","Kilimanjaro","Aconcagua"], a:1,
     e:"El Everest mide 8.849 m y está en la frontera entre Nepal y China." },
 
-  { c:"geografia", q:"¿Cuántos países soberanos hay en Suramérica?", o:["10","12","13","14"], a:1,
-    e:"Doce países soberanos, más la Guayana Francesa, que es territorio de Francia." },
+  { c:"geografia", q:"¿Cuántos países independientes hay en Suramérica?", o:["10","12","13","14"], a:1,
+    e:"Doce países independientes, más la Guayana Francesa, que es territorio de Francia." },
 
   { c:"geografia", q:"¿Cuál es la capital de Canadá?", o:["Toronto","Montreal","Ottawa","Vancouver"], a:2,
     e:"Ottawa, en Ontario. Toronto es la más grande, pero no la capital." },

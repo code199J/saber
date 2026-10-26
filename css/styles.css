@@ -11,6 +11,7 @@
   --tenue:      #8CA6A9;
   --ambar:      #E4A33C;
   --ambar-alto: #F0B75A;
+  --fecha:      #E4A33C;
   --bien:       #4FA97C;
   --mal:        #D0654C;
   --radio:      14px;
@@ -670,6 +671,11 @@ button, input, select, textarea { font-family: inherit; }
 
 .opcion:focus-visible,
 .siguiente:focus-visible { outline-offset: -4px; }
+
+.fecha {
+  color: var(--fecha);
+  font-weight: 600;
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }

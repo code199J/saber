@@ -17,10 +17,10 @@ window.CURSOS = [
         titulo: "1789: el fin del Antiguo Régimen",
         min: 5,
         texto: [
-          "En 1789 Francia era el país más poblado de Europa occidental y también uno de los más desiguales. La sociedad se dividía en tres estados: el clero, la nobleza y el tercer estado —artesanos, campesinos, burgueses—, que era alrededor del 97 % de la población y pagaba casi todos los impuestos. Nobles y clérigos tenían privilegios fiscales y jurídicos.",
-          "El detonante no fue el hambre, aunque el pan costaba más de la mitad del salario de un jornalero. Fue fiscal: décadas de guerras, incluido el apoyo a la independencia de Estados Unidos, habían vaciado las arcas. Luis XVI convocó los Estados Generales para mayo de 1789, la primera reunión desde 1614. El tercer estado exigió votar por persona y no por estamento, se declaró Asamblea Nacional en junio y juró no separarse hasta dar una constitución.",
+          "En 1789 Francia era el país más poblado de Europa occidental y también uno de los más desiguales. La sociedad se dividía en tres estados: la gente de la iglesia, la nobleza y el tercer estado —artesanos, campesinos, burgueses—, que era alrededor del 97 % de la población y pagaba casi todos los impuestos. Nobles y clérigos tenían privilegios fiscales y jurídicos.",
+          "El detonante no fue el hambre, aunque el pan costaba más de la mitad del salario de un jornalero. Fue fiscal: décadas de guerras, incluido el apoyo a la independencia de Estados Unidos, habían vaciado las arcas. Luis XVI convocó los Estados Generales para mayo de 1789, la primera reunión desde 1614. El tercer estado exigió votar por persona y no por grupo social, se declaró Asamblea Nacional en junio y juró no separarse hasta dar una constitución.",
           "El 14 de julio de 1789 una multitud tomó la Bastilla buscando pólvora. En agosto se aprobó la Declaración de los Derechos del Hombre y del Ciudadano. Vino una monarquía constitucional, luego la república en 1792, la ejecución de Luis XVI en enero de 1793 y el Terror, con Robespierre al frente del Comité de Salvación Pública, que envió a la guillotina a decenas de miles de personas antes de caer él mismo en 1794.",
-          "El Directorio gobernó después, hasta que en 1799 un general de 30 años llamado Napoleón Bonaparte dio un golpe de Estado. La revolución terminó, pero dejó algo irreversible: la idea de que la ley es igual para todos y que la soberanía no viene de Dios sino de la nación."
+          "El Directorio gobernó después, hasta que en 1799 un general de 30 años llamado Napoleón Bonaparte dio un golpe de Estado. La revolución terminó, pero dejó algo irreversible: la idea de que la ley es igual para todos y que el poder propio no viene de Dios sino de la nación."
         ],
         quiz: [
           { q: "¿Qué porcentaje de la población formaba el tercer estado?", o: ["Alrededor del 50 %", "Alrededor del 75 %", "Alrededor del 97 %", "Un tercio exacto"], a: 2,
@@ -77,7 +77,7 @@ window.CURSOS = [
         titulo: "1989: el derrumbe que nadie predijo",
         min: 5,
         texto: [
-          "La Unión Soviética llegó a los años ochenta con una economía que ya no crecía, una guerra cara en Afganistán y una nomenclatura envejecida. En 1985 asumió Mijaíl Gorbachov con dos consignas: glásnost, transparencia, y perestroika, reestructuración económica. No quería terminar con el sistema, quería salvarlo. El accidente de Chernóbil en 1986 mostró lo caro que era el secreto: el Estado tardó días en admitir la magnitud.",
+          "La Unión Soviética llegó a los años ochenta con una economía que ya no crecía, una guerra cara en Afganistán y un grupo dirigente envejecido. En 1985 asumió Mijaíl Gorbachov con dos consignas: glásnost, transparencia, y perestroika, reestructuración económica. No quería terminar con el sistema, quería salvarlo. El accidente de Chernóbil en 1986 mostró lo caro que era el secreto: el Estado tardó días en admitir la magnitud.",
           "La apertura política se le fue de las manos. En marzo de 1989 hubo elecciones con candidatos alternativos. En Polonia, Hungría y Checoslovaquia los movimientos pacíficos ganaron espacio. Hungría abrió su frontera con Austria en agosto y miles de alemanes del Este empezaron a salir por ahí. El 9 de noviembre de 1989 el gobierno de la RDA abrió los pasos hacia Berlín Occidental; esa noche la gente empezó a picar el muro.",
           "En agosto de 1991, un grupo de altos cargos intentó un golpe para frenar la desintegración. Fracasó en tres días, y el fracaso aceleró lo que quería evitar. En diciembre de 1991 la URSS se disolvió y dejó quince repúblicas independientes. La Federación Rusa heredó el arsenal nuclear y el asiento en el Consejo de Seguridad de la ONU.",
           "El fin de la Guerra Fría no trajo un mundo sin conflictos, trajo uno distinto: Yugoslavia se desintegró en guerras, la OTAN se expandió hacia el este y Moscú vivió esa expansión como una amenaza. Ese hilo llega hasta hoy."
@@ -313,7 +313,7 @@ window.CURSOS = [
           "Platón fue discípulo de Sócrates y fundó la Academia hacia 387 a. C., la institución educativa más duradera de la Antigüedad. Su obra está escrita en diálogos, casi todos con Sócrates como personaje. La pregunta que lo obsesiona es esta: si todo lo que vemos cambia y se corrompe, ¿cómo puede haber conocimiento verdadero?",
           "Su respuesta es la teoría de las Ideas. Existen dos mundos: el sensible, que cambia y se percibe con los sentidos, y el inteligible, donde están las formas puras —la Belleza, la Justicia, el Círculo perfecto—, que se captan con la razón. Lo que vemos son copias imperfectas. El conocimiento verdadero es recordar esas formas, no descubrirlas en la experiencia.",
           "La alegoría de la caverna, en el libro VII de La República, lo resume: unos prisioneros encadenados ven sombras proyectadas en una pared y creen que eso es la realidad. Uno se libera, sale, se deslumbra con el sol y vuelve a contárselo a los demás. No le creen, y a veces lo matan. La alegoría es también una advertencia sobre el costo de saber.",
-          "En La República propone una ciudad gobernada por filósofos y organizada en clases. Es una utopía incómoda para lectores modernos, pero deja una idea potente: gobernar exige conocimiento, no solo voluntad o popularidad."
+          "En La República propone una ciudad gobernada por filósofos y organizada en clases. Es una idea difícil de alcanzar para lectores modernos, pero deja una idea potente: gobernar exige conocimiento, no solo voluntad o popularidad."
         ],
         quiz: [
           { q: "¿Qué representan las sombras en la caverna?", o: ["La verdad", "Las apariencias que tomamos por realidad", "Las ideas puras", "La política ateniense"], a: 1,
@@ -383,15 +383,15 @@ window.CURSOS = [
         texto: [
           "Antes del dinero había trueque, pero el trueque tiene un problema: necesitas que la otra persona quiera exactamente lo que tú tienes, y en la cantidad correcta. El dinero resuelve eso. Sirve como medio de intercambio, como unidad de cuenta para comparar precios y como reserva de valor para guardar esfuerzo hacia el futuro.",
           "Las primeras monedas aparecen en Lidia, en la actual Turquía, hacia el siglo VII a. C. Antes se usaron metales, sal, ganado y conchas. Lo importante no era el objeto sino la convención: todos aceptaban eso como pago porque esperaban que otros también lo aceptaran.",
-          "El dinero moderno es fiduciario: vale porque el Estado lo declara de curso legal y porque la gente confía en él, no porque esté respaldado por oro. En 1944, en Bretton Woods, se fijó el dólar al oro y las demás monedas al dólar. En 1971, Richard Nixon suspendió esa convertibilidad. Desde entonces el respaldo es la credibilidad del banco central y la capacidad de cobrar impuestos.",
+          "El dinero moderno es basado en la confianza: vale porque el Estado lo declara de curso legal y porque la gente confía en él, no porque esté respaldado por oro. En 1944, en Bretton Woods, se fijó el dólar al oro y las demás monedas al dólar. En 1971, Richard Nixon suspendió ese cambio por oro. Desde entonces el respaldo es la credibilidad del banco central y la capacidad de cobrar impuestos.",
           "Además, la mayor parte del dinero no es billete: son depósitos. Cuando un banco concede un crédito, crea un depósito que antes no existía. Por eso la cantidad de dinero depende del crédito, no solo de la imprenta."
         ],
         quiz: [
           { q: "¿Cuáles son las tres funciones del dinero?", o: ["Ahorro, inversión y crédito", "Medio de intercambio, unidad de cuenta y reserva de valor", "Pago, impuesto y salario", "Compra, venta y trueque"], a: 1,
             e: "Permite intercambiar, comparar precios y guardar valor en el tiempo." },
-          { q: "¿Qué pasó en 1971 con el dólar?", o: ["Se creó la Reserva Federal", "Se suspendió la convertibilidad en oro", "Se adoptó el euro", "Se fijó al petróleo"], a: 1,
-            e: "Nixon cerró la ventanilla del oro: desde entonces el dinero es fiduciario." },
-          { q: "¿Qué respalda al dinero fiduciario?", o: ["El oro en bóveda", "La confianza y el curso legal", "El petróleo", "La deuda externa"], a: 1,
+          { q: "¿Qué pasó en 1971 con el dólar?", o: ["Se creó la Reserva Federal", "Se suspendió el cambio por oro en oro", "Se adoptó el euro", "Se fijó al petróleo"], a: 1,
+            e: "Nixon cerró la ventanilla del oro: desde entonces el dinero es basado en la confianza." },
+          { q: "¿Qué respalda al dinero basado en la confianza?", o: ["El oro en bóveda", "La confianza y el curso legal", "El petróleo", "La deuda externa"], a: 1,
             e: "Su valor depende de la credibilidad del Estado y del banco central, no de un metal." }
         ]
       },
@@ -401,15 +401,15 @@ window.CURSOS = [
         titulo: "Inflación: el impuesto que no se vota",
         min: 5,
         texto: [
-          "La inflación es el aumento sostenido del nivel general de precios. Se mide con el IPC, una canasta de bienes y servicios que se pondera según el consumo típico de los hogares. Si el IPC sube 8 % en un año, con el mismo sueldo compras 8 % menos: eso es la pérdida de poder de compra.",
+          "La inflación es el aumento sostenido del nivel general de precios. Se mide con el IPC, una lista de bienes y servicios que se considera según el consumo típico de los hogares. Si el IPC sube 8 % en un año, con el mismo sueldo compras 8 % menos: eso es la pérdida de poder de compra.",
           "Las causas se agrupan en tres: presión de demanda —hay más dinero persiguiendo los mismos bienes—, choque de costos —energía, transporte, salarios— y expectativas. Las expectativas son clave: si todos creen que los precios subirán, adelantan compras y fijan precios altos, y la profecía se cumple.",
-          "Cuando la inflación se descontrola aparece la hiperinflación. En la Alemania de 1923, un dólar llegó a equivaler a unos 4,2 billones de marcos. La gente cobraba el salario y salía corriendo a gastarlo. En Venezuela, la hiperinflación de 2017-2021 destruyó el salario y empujó a la dolarización espontánea de la economía.",
-          "La inflación no golpea a todos igual. Quien tiene activos —inmuebles, divisas, acciones— se protege. Quien vive de un sueldo fijo o de una pensión pierde. Y la indexación, ajustar contratos y salarios por inflación, ayuda a sobrevivir pero puede volver el problema más persistente."
+          "Cuando la inflación se descontrola aparece una inflación descontrolada. En la Alemania de 1923, un dólar llegó a equivaler a unos 4,2 billones de marcos. La gente cobraba el salario y salía corriendo a gastarlo. En Venezuela, una inflación descontrolada de 2017-2021 destruyó el salario y empujó a la dolarización espontánea de la economía.",
+          "La inflación no golpea a todos igual. Quien tiene activos —inmuebles, divisas, acciones— se protege. Quien vive de un sueldo fijo o de una pensión pierde. Y el ajuste por inflación, ajustar contratos y salarios por inflación, ayuda a sobrevivir pero puede volver el problema más persistente."
         ],
         quiz: [
-          { q: "¿Qué mide el IPC?", o: ["El desempleo", "La variación de precios de una canasta", "El PIB", "La tasa de interés"], a: 1,
-            e: "El Índice de Precios al Consumidor sigue una canasta representativa de consumo." },
-          { q: "¿Qué ocurrió en Alemania en 1923?", o: ["Una deflación", "Una hiperinflación", "Un default", "Una devaluación del 10 %"], a: 1,
+          { q: "¿Qué mide el IPC?", o: ["El desempleo", "La variación de precios de una lista", "El PIB", "La tasa de interés"], a: 1,
+            e: "El Índice de Precios al Consumidor sigue una lista representativa de consumo." },
+          { q: "¿Qué ocurrió en Alemania en 1923?", o: ["Una bajada de precios", "Una inflación descontrolada", "Un impago de deuda", "Una devaluación del 10 %"], a: 1,
             e: "El marco perdió todo su valor: un dólar llegó a equivaler a billones de marcos." },
           { q: "¿A quién perjudica más la inflación?", o: ["A quien tiene inmuebles", "A quien vive de un sueldo fijo", "A quien tiene dólares", "A los exportadores"], a: 1,
             e: "Los ingresos fijos pierden poder de compra; los activos suelen ajustarse." }
@@ -443,15 +443,15 @@ window.CURSOS = [
         texto: [
           "Cuando un Estado gasta más de lo que recauda, emite deuda: bonos que compradores —bancos, fondos, otros países— adquieren a cambio de un interés. La relación deuda/PIB compara lo que debe con lo que produce la economía en un año. Japón supera el 250 %, Estados Unidos ronda el 120 % y Alemania el 63 %.",
           "Una deuda alta no es automáticamente una crisis. Lo que importa es la tasa, la moneda y el plazo. Si debes en tu propia moneda y a plazos largos, puedes refinanciar; si debes en dólares y a corto plazo, cualquier susto de mercado te obliga a pagar caro o a incumplir.",
-          "El default es la cesación de pagos. Argentina entró en default en 2001, en 2014 y en 2020; Grecia evitó el suyo en 2012 con una quita que perdió a los acreedores más de la mitad de su valor. Las consecuencias son duras: cierre del crédito, caída de la moneda, recesión y años de negociación.",
+          "Un impago de deuda es la cesación de pagos. Argentina entró en impago de deuda en 2001, en 2014 y en 2020; Grecia evitó el suyo en 2012 con una quita que perdió a los acreedores más de la mitad de su valor. Las consecuencias son duras: cierre del crédito, caída de la moneda, recesión y años de negociación.",
           "La deuda privada también importa. La crisis de 2008 nació de hipotecas empaquetadas y apalancamiento bancario, no de la deuda pública. Cuando el sector privado se endeuda para comprar activos cuyo precio sube, el ciclo se retroalimenta hasta que se detiene."
         ],
         quiz: [
           { q: "¿Qué mide la relación deuda/PIB?", o: ["El déficit anual", "La deuda frente a la producción anual", "El interés pagado", "Las reservas del banco central"], a: 1,
             e: "Compara el stock de deuda con el tamaño de la economía en un año." },
-          { q: "¿Qué es un default?", o: ["Una devaluación", "La cesación de pagos de la deuda", "Un impuesto", "Una quita voluntaria"], a: 1,
+          { q: "¿Qué es un impago de deuda?", o: ["Una devaluación", "La cesación de pagos de la deuda", "Un impuesto", "Una quita voluntaria"], a: 1,
             e: "El deudor no puede o no quiere pagar en los términos acordados." },
-          { q: "¿Por qué importa la moneda en que se emite la deuda?", o: ["No importa", "Porque en moneda propia puedes refinanciar", "Porque siempre es más barato en dólares", "Porque evita el default"], a: 1,
+          { q: "¿Por qué importa la moneda en que se emite la deuda?", o: ["No importa", "Porque en moneda propia puedes refinanciar", "Porque siempre es más barato en dólares", "Porque evita el impago de deuda"], a: 1,
             e: "Deber en moneda propia permite emitir para pagar; en moneda extranjera, no." }
         ]
       }
@@ -493,7 +493,7 @@ window.CURSOS = [
         min: 5,
         texto: [
           "En 1953, el primer ministro iraní Mohammad Mosaddeq nacionalizó la industria petrolera. Reino Unido y Estados Unidos organizaron un golpe que lo derrocó y colocó al sah. El episodio se recuerda en Irán como el origen de décadas de desconfianza, y muestra la lógica del recurso: quien lo controla, negocia desde otra posición.",
-          "La OPEP se fundó en 1960 en Bagdad, con Venezuela entre los socios fundadores, para defender los precios frente a las grandes petroleras. En octubre de 1973, durante la guerra de Yom Kipur, los países árabes decretaron un embargo contra Estados Unidos y Países Bajos. El precio del barril se multiplicó por cuatro en meses. Fue el primer choque petrolero y cambió la macroeconomía mundial: inflación y desempleo al mismo tiempo, algo que los manuales no preveían.",
+          "La OPEP se fundó en 1960 en Bagdad, con Venezuela entre los socios fundadores, para defender los precios frente a las grandes petroleras. En octubre de 1973, durante la guerra de Yom Kipur, los países árabes decretaron un embargo contra Estados Unidos y Países Bajos. El precio del barril se multiplicó por cuatro en meses. Fue el primer choque petrolero y cambió la economía en conjunto mundial: inflación y desempleo al mismo tiempo, algo que los manuales no preveían.",
           "En 1979 la revolución iraní provocó el segundo choque. Luego vino la contracción de los ochenta y el desplome de precios de 1986, que contribuyó al colapso soviético: Moscú dependía de sus exportaciones de crudo.",
           "En 1990 Irak invadió Kuwait y una coalición liderada por Estados Unidos lo expulsó en 1991. Desde entonces, la seguridad del Golfo es un eje de la política exterior de las grandes potencias, y el precio del petróleo sigue siendo un impuesto mundial que se paga en cada factura."
         ],
@@ -514,14 +514,14 @@ window.CURSOS = [
         texto: [
           "En 1978, dos años después de la muerte de Mao, Deng Xiaoping lanzó las reformas. El campo pasó al sistema de responsabilidad familiar: el campesino entregaba una cuota al Estado y vendía el excedente. Se abrieron zonas económicas especiales, la primera en Shenzhen, con incentivos para la inversión extranjera. El Partido mantuvo el control político y soltó la economía.",
           "El resultado fue el mayor crecimiento sostenido de la historia moderna: alrededor del 10 % anual durante tres décadas. El Banco Mundial calcula que unos 800 millones de personas salieron de la pobreza extrema. China se convirtió en la fábrica del mundo y en el primer socio comercial de más de cien países.",
-          "En 2001 entró a la Organización Mundial del Comercio, lo que le abrió los mercados occidentales sin aranceles altos. En 2013 lanzó la Franja y la Ruta, una red de infraestructura y financiamiento que va de Asia a África y Europa, y que también es una herramienta de influencia.",
-          "Desde 2018 la relación con Estados Unidos se tensó: aranceles, prohibiciones a Huawei, controles a la exportación de semiconductores. La competencia ya no es solo comercial, es tecnológica y militar. Taiwán, con TSMC produciendo la mayoría de los chips avanzados del mundo, es el punto más peligroso de esa disputa."
+          "En 2001 entró a la Organización Mundial del Comercio, lo que le abrió los mercados occidentales sin impuestos de importación altos. En 2013 lanzó la Franja y la Ruta, una red de infraestructura y financiamiento que va de Asia a África y Europa, y que también es una herramienta de influencia.",
+          "Desde 2018 la relación con Estados Unidos se tensó: impuestos de importación, prohibiciones a Huawei, controles a la exportación de semiconductores. La competencia ya no es solo comercial, es tecnológica y militar. Taiwán, con TSMC produciendo la mayoría de los chips avanzados del mundo, es el punto más peligroso de esa disputa."
         ],
         quiz: [
           { q: "¿Quién lanzó las reformas económicas de 1978?", o: ["Mao Zedong", "Deng Xiaoping", "Xi Jinping", "Zhou Enlai"], a: 1,
             e: "Deng abrió la economía sin ceder el control político del Partido." },
           { q: "¿Qué papel tuvo la OMC en 2001?", o: ["Aisló a China", "Le abrió los mercados globales", "Prohibió sus exportaciones", "Creó el yuan"], a: 1,
-            e: "La entrada a la OMC facilitó el acceso sin aranceles altos a mercados occidentales." },
+            e: "La entrada a la OMC facilitó el acceso sin impuestos de importación altos a mercados occidentales." },
           { q: "¿Por qué Taiwán es clave en la disputa tecnológica?", o: ["Por su petróleo", "Por TSMC y los chips avanzados", "Por su ejército", "Por su población"], a: 1,
             e: "TSMC fabrica la mayor parte de los semiconductores de vanguardia del mundo." }
         ]
